@@ -1,22 +1,32 @@
+import os
 from urllib.request import urlopen
 from urllib.parse import urlparse
+import re
 
 def htmldownloader(base_url,url,i):
-    
     parsed_url = urlparse(url).netloc
-    if parsed_url in base_url and '.css' not in url:
-
+    # print(parsed_url)
+    if parsed_url in base_url:          # and not (True in [i in url for i in ['.css','.ico','.php']]):
         # filename = url[ url.find('.') + 1 : url.rfind('.') ]
         # filename = filename.replace('.','_').replace('/','_')+ '.html'
-    
-        main_html = urlopen(url)
-        read_file = main_html.read()
-        read_file_str = str(read_file)
-        outputfile = read_file_str.split('\\n')
 
-        parsed_url = parsed_url.replace('.','_')
-        download_file = open(parsed_url + '/' + i +'.html','w')
-        
-        for line in outputfile:
-            download_file.write(line+'\n')
-        download_file.close()
+        try:
+            main_html = urlopen(url)
+            read_file = main_html.read()
+            read_file_str = str(read_file)
+            outputfile = read_file_str.split('\\n')
+
+            parsed_url = parsed_url.replace('.','_')
+            filename = re.sub(r'[^a-zA-Z0-9]','_',urlparse(url).path)
+            filename = os.getcwd() +'/' + parsed_url + '/' + filename +'.html'
+           
+
+            download_file = open(filename,'w')
+
+            for line in outputfile:
+                download_file.write(line+'\n')
+            download_file.close()
+
+            
+        except:
+            pass
