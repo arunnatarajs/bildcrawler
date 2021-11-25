@@ -1,0 +1,14 @@
+https://www.bus.irctc.co.in/
+https://www.bus.irctc.co.in/favicon.ico
+https://use.fontawesome.com/releases/v5.6.3/css/all.css
+https://www.bus.irctc.co.in/assets/css/jquery-ui.css
+https://fonts.gstatic.com
+https://fonts.googleapis.com/css2?family=Roboto&display=swap
+https://www.bus.irctc.co.in/assets/css/bootstrap.min.css
+https://www.bus.irctc.co.in/assets/css/animate.min.css
+https://www.bus.irctc.co.in/assets/css/owl.carousel.min.css
+https://www.bus.irctc.co.in/assets/css/owl.theme.default.min.css
+https://www.bus.irctc.co.in/assets/css/style.css
+https://www.bus.irctc.co.in/assets/css/responsive.css
+https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css
+https://www.bus.irctc.co.in/styles.0e4338761429b4eb16ac.css

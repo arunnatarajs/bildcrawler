@@ -1,0 +1,24 @@
+# import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from urllib.request import urlopen
+# import lxml
+
+url = 'https://www.tutorialspoint.com/'
+
+filename = url[ url.find('.') + 1 : url.rfind('.') ]
+filename = filename.replace('.','_')+ '.txt'
+
+main_html = urlopen(url)
+read_file = main_html.read()
+read_file_str = str(read_file)
+outputfile = read_file_str.split('\\n')
+
+bs = BeautifulSoup(main_html,'lxml')    # print(main_html)  # print(bs)
+links = bs.find_all('a')
+print(bs.prettify())
+
+file = open('parser.txt','w')
+
+for i in outputfile:
+    file.write(i+"\n")

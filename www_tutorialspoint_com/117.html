@@ -1,0 +1,2844 @@
+b'<!DOCTYPE html>  \r
+<html>  \r
+<head>  \r
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />\r
+<title>Free Online Whiteboard</title>\r
+<meta name="Description" content="Free Online Whiteboard and Collaboration - A Free web whiteboard loaded with great functionalities like online presentation, setup customize background, different pen sizes, millions of colors, adding text with beautiful fonts, simple Do and Undo functions, eraser, add various shapes, add customize images and finally save your work as an image or whiteboard itself which can be uploaded later iwhen and as needed. This is ideal for teaching online or presentation online." />\r
+<meta name="Keywords" content="Free, Online, Whiteboard, Teaching, Students, Presentation., Background, Fonts, text, Eraser, Pencil, Shapes"/>\r
+<base href="https://www.tutorialspoint.com/" />\r
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />\r
+<link rel="stylesheet" type="text/css" href="theme/css/gray/easyui.css">\r
+<link rel="stylesheet" type="text/css" href="theme/css/icon.css">\r
+<link rel="stylesheet" type="text/css" href="theme/css/lightslider.css">\r
+<link rel="stylesheet" type="text/css" href="theme/css/whiteboard.css">\r
+<link href=\'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poiret+One|Lobster|Shadows+Into+Light|Pacifico|Sigmar+One|Courgette|Lobster+Two|Pinyon+Script|Playball|Satisfy|Great+Vibes|Tangerine|Luckiest+Guy\' rel=\'stylesheet\' type=\'text/css\'>\r
+<script src="theme/js/jquery.js"></script> \r
+<script src="theme/js/jquery.easyui.min.js"></script>\r
+<script src="theme/js/fabric-min.js"></script>\r
+<script src="theme/js/screenfull.js"></script>\r
+<script src="theme/js/ion.sound.min.js"></script>\r
+<script src="theme/js/rmc3.min.js"></script>\r
+<script src="theme/js/rmc3.fbr.min.js"></script>\r
+<script src="theme/js/socket.io.js"></script>\r
+<link rel="stylesheet" type="text/css" href="theme/css/slick.css"/>\r
+<link rel="stylesheet" type="text/css" href="theme/css/slick-theme.css"/>\r
+<script type="text/javascript" src="theme/js/slick.min.js"></script>\r
+<script type="text/javascript" src="tutor_connect/js/bootstrap.min.js"></script>\r
+\r
+<style>\r
+.fa-refresh:before {content:"\\f079"; font-family:\'FontAwesome\'; font-size:150%; font-style:normal;}\r
+#refresh{display:none;}\r
+</style>\r
+\r
+<script type="text/javascript">\r
+$(document).ready(function() { \r
+   var tc_flodername = \'\';\r
+   var tc_slides = \'\';\r
+   var id = \'#dialog\';\r
+   //Get the screen height and width\r
+   var maskHeight = $(document).height();\r
+   var maskWidth = $(window).width();\r
+   //Set heigth and width to mask to fill up the whole screen\r
+   $(\'#mask\').css({\'width\':maskWidth,\'height\':maskHeight});\r
+   //transition effect\r
+   $(\'#mask\').fadeIn(500);\r
+   $(\'#mask\').fadeTo("slow",0.5); \r
+   //Get the window height and width\r
+   var winH = $(window).height();\r
+   var winW = $(window).width();\r
+   //Set the popup window to center\r
+   $(id).css(\'top\',  winH/2-$(id).height()/2);\r
+   $(id).css(\'left\', winW/2-$(id).width()/2);\r
+   //transition effect\r
+   if(tc_flodername != \'\' && tc_slides !=\'\'){\r
+      //$(id).fadeIn(2000);  \r
+      $(\'#mask\').hide();      \r
+   } else {\r
+      $(id).fadeIn(2000);    \r
+   }\r
+   \r
+   //if close button is clicked\r
+   $(\'.window .close\').click(function (e) {\r
+   //Cancel the link behavior\r
+   e.preventDefault();\r
+   $(\'#mask\').hide();\r
+   $(\'.window\').hide();\r
+   });\r
+   //if mask is clicked\r
+   $(\'#mask\').click(function () {\r
+   $(this).hide();\r
+   $(\'.window\').hide();\r
+   });\r
+   $(\'.carousel\').carousel({\r
+     interval: 1000 * 7\r
+   });\r
+   $(\'.carousel\').carousel(\'cycle\');\r
+});\r
+</script>\r
+
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="6RAQP-S44QZ-RE8AD-YSYWA-P84NW",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain=\'"+n+"\';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload=\'document._boomrl();\'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"6RAQP-S44QZ-RE8AD-YSYWA-P84NW";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="pkwu2jlik26taym7czeq-f-60e9a2a8f-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"32","ak.cp":"1243695","ak.ai":parseInt("747244",10),"ak.ol":"0","ak.cr":15,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"4226cd4c","ak.r":32200,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.bpcip":"122.173.77.0","ak.cport":60242,"ak.gh":"104.86.189.44","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"reno","ak.t":"1637815881","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==bdfZY9VSLVkWBTIFqdWsFx3KszfUZvkg2XriUyzHJ18AaO2yPXvW9NKcwZJsi87BMloN6SUh95QBe4jcie/uJgsw/6GMG4BUk+PHayte+sfWCUYDEhJOGgpkCZCq6LlMqQf3HfrPfeRaP3S+s3nxh+9TVnMMZsPg5JSMcox92bIYrIu2Kmr08WBD00586EDXOR65qYdTriWSvEo1zC5Ze3kp+MIaW9pzFyi1naFYVfNlk8HfXMrU+KGE7TtOxYT6vbZp19BPYWw4hBQw/eH/W5uSof0AKCLKy8j8G+RwKWbq66fHPm3JqEekf/eQ65ayn676y1Df/mKnqEBFzZIdfLsOfpVVjgygllIKrVgzPZIWXnbhlGi+GQRjze+u21Q+o7kJe3M6YI01UDznIfnB9qlhRPc0HL3lIvgTYBVKTB0=","ak.pv":"8","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head> \r
+<body class="easyui-layout" id="cc">\r
+\r
+<!-- Loader html code -->\r
+<div class="wrapLoader">\r
+   <div class="imgLoader">\r
+      <img src="/images/loading.gif" alt="" width="70" height="70" />\r
+      <div id="wait"></div>\r
+   </div>\r
+</div>\r
+<!-- end of Loader html code -->\r
+\r
+<!-- popup html code -->\r
+<div id="boxes">         \r
+   <div id="dialog" class="window">         \r
+      <div id="popupfoot"> <a href="#" class="close agree" title="close window">x</a></div>            \r
+         <div class="bs-example">\r
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">  \r
+               <!-- Wrapper for carousel items -->\r
+               <div class="carousel-inner bigbanner">\r
+                  <div class="item active">\t\t\t\r
+                     <img src="/whiteboard/images/live-video-chat.jpg" title="Live Video Chat">\r
+                  </div>\r
+                  <div class="item">\t\r
+                     <img src="/whiteboard/images/upload_presentations.jpg" title="Upload Presentations">\r
+                  </div>\r
+                  <div class="item">\t\r
+                     <img src="/whiteboard/images/online_presentation.jpg" title="Online Presentations">\r
+                  </div>\r
+                  <div class="item">\r
+                     <img src="/whiteboard/images/upload-download-presentation.jpg" title="Upload/Download Presentation">\r
+                  </div>\r
+                  <div class="item active">\t\t\t\r
+                     <img src="/whiteboard/images/change-background.jpg" title="Change Background Color">\r
+                  </div>\r
+                  <!-- Carousel controls -->\r
+                  <a class="carousel-control left" href="#myCarousel" data-slide="prev">\r
+                     <span class="fa-angle-left"></span>\r
+                  </a>\r
+                  <a class="carousel-control right" href="#myCarousel" data-slide="next">\r
+                     <span class="fa-angle-right"></span>\r
+                  </a> \r
+               </div>\r
+            </div>\r
+         </div>          \r
+   </div>\r
+   <div id="mask"></div>\r
+</div>\r
+<!-- end of popup html code -->\r
+\r
+\r
+<!--HEADER STARTS -->\r
+<div data-options="region:\'north\'" style="height:65px; width:100%;overflow:hidden;">   \r
+   <div id="invite" class="easyui-dialog" title="Meeting Invitation" style="width:600px;height:250px;" data-options="iconCls:\'icon-email\',resizable:true,modal:true, onOpen:function(){$(\'.imgLoader\').css(\'visibility\', \'hidden\');}, onClose:function(){if( $(\'#center\').children().filter(\'video\').length == 0 ){$(\'.imgLoader\').css(\'visibility\', \'visible\');}}">\r
+      <div id="eids" class="easyui-validatebox" data-options="required:true,validType:\'emails\', prompt:\'Enter Email IDs separated by comma...\',buttonText:\'Invite\'" style="width:70%;height:32px;"></div>\r
+   </div>\r
+   <div id="videocontext" class="easyui-menu" style="width:150px;">\r
+     <div id="muteUser" data-options="iconCls:\'fa-microphone-slash-small\'">Mute User</div>\r
+     <div id="unmuteUser" data-options="iconCls:\'fa-microphone-small\'">Unmute User</div>\r
+   </div>\r
+   <div id="sign" class="easyui-window" title="Whiteboard" data-options="iconCls:\'icon-login\',modal:true, maximizable:false, closed:true, minimizable:false" style="width:530px;height:475px;padding:10px;">\r
+   </div>\r
+   <div id="dlg" class="easyui-dialog" title="Meeting" style="width:500px;height:250px;" data-options="iconCls:\'icon-chat-small\', resizable:true, modal:true, buttons: \'#dlg-buttons\'">\r
+      <div style="margin-bottom:10px">\r
+      <input class="easyui-textbox" id="room_id" style="width:80%;height:40px;padding:12px" data-options="prompt:\'Enter a unique room ID\',iconCls:\'icon-lock\',iconWidth:38">\r
+      </div>\r
+      <div style="margin-bottom:20px">\r
+      <input class="easyui-textbox" id="user_name" style="width:80%;height:40px;padding:12px" data-options="prompt:\'Enter your name\', iconCls:\'icon-man\',iconWidth:38">\r
+      </div>\r
+   </div>\r
+   \r
+   <div id="ancTutorContent" class="easyui-window" title="Whiteboard" data-options="iconCls:\'icon-login\',modal:true, maximizable:false, closed:true, minimizable:false" style="width:530px;height:200px;padding:10px;">\r
+   </div>\r
+   \r
+   <div id="dlg-buttons" style="text-align:center;">\r
+      <a href="javascript:void(0)" class="easyui-linkbutton" id="create_meeting_room">Create Meeting Room</a>\r
+      <a href="javascript:void(0)" class="easyui-linkbutton" id="join_meeting_room">Join Meeting Room</a>\r
+   </div>\r
+   <a href=\'http://www.tutorialspoint.com/\'>\r
+      <img src="/green/images/diamond.png" height="50px" style="padding:5px; float:left;"/>\r
+   </a>\r
+   <h1 class="whtboard">Whiteboard</h1>\r
+\r
+   <!-- header top right menu first -->      \r
+   <div style="margin:18px 0px 0px 0px;">\r
+      <div class="db-nav">\r
+         <a href="javascript:void(0);" id="ancUndo" title="Undo">\r
+            <div class="sub-default-lft" style="border-right:none;"><i class="fa-undo wbitem"></i></div>\r
+         </a>\r
+         <a href="javascript:void(0);" id="ancRedo" title="Redo">\r
+            <div class="sub-default-lft" style="border-right:none;"><i class="fa-repeat wbitem"></i></div>\r
+         </a>\r
+         <a href=\'javascript:void(0)\'  title="Clear all" class="clrDynamicCanvas">\r
+            <div class="sub-default-lft wbitem" style="border-right:none;"><img src="whiteboard/images/clear.png" style="vertical-align:bottom; height:17px;"/></div>\r
+         </a>\r
+         <a href=\'javascript:void(0)\' id="maximize" title="Maximize" >\r
+            <div class="sub-default-lft" ><i class="fa-expand"></i></div>\r
+         </a>\r
+         <a href=\'javascript:void(0)\' id="refresh" title="Refresh Connection">\r
+            <div class="sub-default-lft" ><i class="fa-refresh"></i></div>\r
+         </a>   \r
+         <a href="javascript:void(0);" id="ancHelpMain" title="Help Whiteboard">\r
+           <div class="sub-default-lft" style="border-right:none;"><img src="theme/css/icons/help.png" /></div>\r
+         </a>      \r
+      </div>\r
+   </div> \r
+   <!-- end of header top right menu first -->   \r
+   \r
+</div>\r
+</div>\r
+<!--HEADER ENDS -->\r
+\r
+<div id="east" data-options="region:\'east\', title:\'Meeting\',iconCls:\'icon-chat-small\', split:false, collapsed:false" style="width:300px;">\r
+   <div id="webrtcPanel" class="easyui-layout" data-options="fit:true,border:false">\r
+      <div data-options="region:\'north\',split:true" style="height:322px; border:0px;">\r
+         <div class="video-control">\r
+            <div id="containerUserFaces">\r
+               <h2>Waiting for participants to join</h2>\r
+            </div>\r
+            <div class="db-nav chat-nav-center">\r
+               <div id="containerBigVideoAndFullscreen">\r
+                  <div id="containerBigVideo">\r
+                     <i class="fa-user-large chatitem"></i>\r
+                  </div>\r
+               </div>\r
+            </div>\r
+            <div class="db-nav chat-nav-center">\r
+               <a href="javascript:void(0);" id="btnShareVideo" title="Share Video">\r
+                  <div class="sub-default-lft" style="border-right:none;"><i class="fa-video-camera-small chatitem"></i></div>\r
+               </a>\r
+               <a href="javascript:void(0);" id="btnShareAudio" title="Unmute">\r
+                  <div class="sub-default-lft" style="border-right:none;"><i class="fa-microphone-small chatitem"></i></div>\r
+               </a>\r
+               <a href="javascript:void(0);" id="btnSendInvite" title="Send Invite">\r
+                  <div class="sub-default-lft" style="border-right:none;"><i class="fa-envelope-o chatitem"></i></div>\r
+               </a>\r
+               <a href="javascript:void(0);" id="btnMuteAll" title="Mute All">\r
+                  <div class="sub-default-lft" style="border-right:none;"><i class="fa-volume-off chatitem"></i></div>\r
+               </a>\r
+               <a href="javascript:void(0);" id="btnRaiseHand" title="Raise Hand">\r
+                  <div class="sub-default-lft" style="border-right:none;"><i class="fa-raise-hand-small chatitem"></i></div>\r
+               </a>\r
+               <a href="javascript:void(0);" id="btnEnlargeVideo" title="Enlarge Video">\r
+                  <div class="sub-default-lft" style="border-right:none;"><i class="fa-expand-small chatitem"></i></div>\r
+               </a>\r
+            </div>\r
+         </div>\r
+      </div>\r
+      <div data-options="region:\'center\'" id="chatParent" style="overflow:hidden; border:0px;">\r
+         <div id="chatContainer"> </div>\r
+      </div>\r
+      <div data-options="region:\'south\',split:false" style="width:100%; border:0px;">\r
+         <div id="chat-input-box" style="border:1px solid #eee; border-left:0px solid;">\r
+            <input id="input-box" class="easyui-textbox" data-options="buttonText:\'Send\',prompt:\'Enter your text here...\',iconWidth:22" style="width:100%; height:40px; border-radius:0px; -webkit-border-radius:0px; -moz-border-radius:0px">\r
+         </div>\r
+      </div>\r
+   </div>   \r
+</div>\r
+\r
+<!--Left Navigation starts --> \r
+<div id="west" data-options="region:\'west\', title:\'\',iconCls:\'\', split:false, collapsible:false" style="width:55px;">\r
+   <div class="wr-left">\r
+      <div class="wr-lft-cont column">\r
+         <div class="sub-default clickDisable" id="lftMainmenu">\r
+             <a href="javascript:void(0);" id="ancSelect" title="Select Tool">\r
+               <div class="sub-default-lft"><i class="fa-mouse-pointer"></i></div>\r
+            </a>\r
+             <a href="javascript:void(0);" id="ancBackground" title="Background">\r
+               <div class="sub-default-lft"><i class="fa-circle wbitem"></i></div>\r
+             </a>\r
+             <a href="javascript:void(0);" id="ancPattern" title="Pattern">\r
+               <div class="sub-default-lft" ><img src="whiteboard/images/pattern-icon.png" style="border:1px solid #ccc;border-radius:60px;"/></div>\r
+             </a>\r
+             <a href="javascript:void(0);" id="ancPencil" title="Pencil">\r
+               <div class="sub-default-lft" style="border-right:none;"><i class="fa-pencil wbitem" style="font-size:120%;"></i></div>\r
+             </a>\r
+             <a href=\'javascript:void(0)\' id="ancEraser" title="Eraser">\r
+               <div class="sub-default-lft"><i class="fa-eraser"></i></div>\r
+             </a>\r
+             <a href="javascript:void(0);" id="ancShape" title="Shapes">\r
+               <div class="sub-default-lft" style="border-right:none;"><img src="whiteboard/images/shape-sm.png" /></div>\r
+             </a>\r
+             <a href="javascript:void(0);" id="ancText" title="Text">\r
+               <div class="sub-default-lft" style="border-right:none;"><i class="fa-text-height"></i></div>\r
+             </a> \r
+             <a href="javascript:void(0);" id="ancImage" title="Image">\r
+               <div class="sub-default-lft" style="border-right:none;"><i class="fa-file-image-o"></i></div>\r
+             </a>                         \r
+               \r
+            <a href="javascript:void(0);" id="ancTutorConnect" title="Tutor Connect Content Presentation">\r
+               <div class="sub-default-lft" style="border-right:none;"><img src="theme/css/icons/image-editor.png" /></div>\r
+            </a>             \r
+            <a href="javascript:void(0);" id="ancStartChat" title="Meeting">\r
+               <div class="sub-default-lft" style="border-right:none;"><img src="theme/css/icons/chat_room.png" /></div>\r
+            </a> \t\t             \r
+            <a href="javascript:void(0);" id="ancDownload" title="Download/Upload">\r
+               <div class="sub-default-lft" style="border-right:none;"><img src="whiteboard/images/up-down.png" /></div>\r
+            </a> \t\t   \r
+                                  \r
+         </div>\r
+      </div>\r
+    </div>           \r
+</div>\r
+<!--End of Left Navigation -->\r
+\r
+<!--BOTTOM STARTS -->\r
+<div id="south" data-options="region:\'south\',iconCls:\'icon-image-editor\', title:\'Slides\', split:false,collapsible:true" style="height:115px">\r
+</div>\r
+<!--BOTTOM ENDS -->\r
+\r
+<!--STAGE STARTS -->\r
+<div id="center" data-options="region:\'center\'" style="height:100%">\r
+   <div id="stage">\r
+      <canvas id="canvasBoard"></canvas>\r
+      <!--WebRTC block -->\r
+      <!-- placeholder for shared part of the screen(from the user side) -->\r
+      <div id="containerSharedPartOfScreenPreview" style="display:none;">\r
+        <img id="sharedPartOfScreenPreview"  style="max-width:100%;"/>\r
+      </div>\r
+      <!--END WebRTC block -->         \r
+   </div>\r
+   <!-- header top right menu second -->         \r
+   <div class="wr-rgt">\r
+      <div class="wr-rgt-cont">\r
+        \r
+        <!-- code of background color picker -->\r
+         <div class="subProperties left-meni-slide" id="bgColorpick" style="min-height:306px; max-height:100%;">\r
+            <div class="icon-curve icon-bgcolor" style="background:transparent !important"></div>\r
+            <div class="sub-tools items">\r
+               <a href="javascript:void(0);" class=\'clsBgColor bgcrcle\'><div class="blck-bgpicker"></div>\r
+               </a>            \r
+               <a href="javascript:void(0);" class=\'clsBgColor bgcrcle\'><div class="red-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsBgColor bgcrcle\'><div class="green-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsBgColor bgcrcle\'><div class="yellow-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsBgColor bgcrcle\'><div class="blue-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsBgColor bgcrcle\'><div class="white-bgpicker"></div></a> \r
+               <a href="javascript:void(0);" class=\'bgcrcle\'>\r
+                  <input type="color" id="txtBgColorVal" class="form-control picker" value="#000000">            \r
+               </a>\r
+            </div>          \r
+         </div>\r
+         <!-- end of code for background color picker -->\r
+                   \r
+         <!-- code of patterns -->\r
+         <div class="subProperties left-meni-slide" id="bgPattern" style="min-height:312px; max-height:100%;">\r
+            <div class="icon-curve icon-bgpattern"></div>\r
+           <div class="sub-tools items">\r
+              <a href="javascript:void(0);" class=\'clsBgColor bgcrcle h30\' title="Guidelines">\r
+                 <div class="bgclpkr bgpatterns"><img src="whiteboard/images/transparent-guidelines.png" /></div>\r
+              </a>\r
+              <a href="javascript:void(0);" class=\'clsBgColor bgcrcle h30\' title="Book Guidelines">\r
+                 <div class="bgclpkr bgpatterns"><img src="whiteboard/images/transparent-booklines.png" /></div>\r
+              </a>\r
+              <a href="javascript:void(0);" class=\'clsBgColor bgcrcle h30\' title="Transparent Background">\r
+                 <div class="bgclpkr bgpatterns"><img src="whiteboard/images/transparent.png" /></div>\r
+              </a>\r
+              <a href="javascript:void(0);" class=\'clsBgColor bgcrcle h30\' title="Guidelines">\r
+                 <div class="bgclpkr bgpatterns"><img src="whiteboard/images/transparent-diamond.png" /></div>\r
+              </a>\r
+              <a href="javascript:void(0);" class=\'clsBgColor bgcrcle h30\' title="Book Guidelines">\r
+                 <div class="bgclpkr bgpatterns"><img src="whiteboard/images/transparent-lgap.png" /></div>\r
+              </a>\r
+              <a href="javascript:void(0);" class=\'clsBgColor bgcrcle h30\' title="Transparent Background">\r
+                 <div class="bgclpkr bgpatterns"><img src="whiteboard/images/transparent-checkered.png" /></div>\r
+              </a>   \r
+              <a href="javascript:void(0);" class=\'bgcrcle\' title="Transparent Background" style="padding:3px 5px 4px 7px!important;">\r
+                <form method="post" enctype="multipart/form-data">       \r
+                   <input type="file" id="filePattern" name="filePattern" title="Upload Pattern from Computer"/>\t               \r
+                </form>\r
+                <div class="fileuploadph" id="btnUploadPattern" title="Upload Pattern from Computer"><i class="fa-upload"></i></div>\r
+              </a>              \r
+           </div>\r
+         </div>\r
+         <!-- end of code patterns -->\r
+         \r
+         <!-- code of pencil -->\r
+         <div class="subProperties left-meni-slide" id="penEdit" style="min-height:345px; max-height:100%;">  \r
+           <div class="icon-curve icon-pendit"></div>\r
+           <div class="sub-tools">          \r
+             <div class="items" style="margin:0px 51px 0px 0px;">            \r
+               <a href="javascript:void(0);" class=\'clsPencilColor bgcrcle\'>\r
+                   <input type="color" id="txtPencilClrVal" class="form-control picker" value="#000000"> \r
+               </a>            \r
+               <a href="javascript:void(0);" class=\'clsPencilColor bgcrcle\'><div class="blck-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsPencilColor bgcrcle\'><div class="red-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsPencilColor bgcrcle\'><div class="green-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsPencilColor bgcrcle\'><div class="yellow-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsPencilColor bgcrcle\'><div class="white-bgpicker"></div></a>\r
+               <a href="javascript:void(0);" class=\'clsPencilColor bgcrcle\'><div class="blue-bgpicker"></div></a>\r
+             </div>\r
+             <input id="lineSlide" name="lineSlide" value="2"  />\r
+           </div>        \r
+         </div>\r
+         <!-- end of code for pencil-->\r
+         \r
+         <!-- code for eraser--> \r
+         <div class="subProperties left-meni-slide" id="eraseOptions" style="min-height:43px; max-height:100%;">\r
+           <div class="icon-curve icon-eraseoption"></div>\r
+           <div class="sub-tools">      \r
+             <input id="eraserSlide" name="eraserSlide" value="2" />\r
+           </div>\r
+         </div>\r
+         <!-- end of code for eraser-->\r
+         \r
+         <!-- code of shapes -->\r
+         <div class="subProperties left-meni-slide" id="shapeOptions" style="min-height:351px; max-height:100%;">\r
+           <div class="icon-curve icon-shpeoption"></div>\r
+           <div class="sub-tools items">\r
+             <a href="javascript:void(0);" class=\'shapeFillColor bgcrcle\'>                      \r
+                <input type="color" id="txtFillClrVal" class="form-control picker" value="">\r
+             </a>                              \r
+             <a href="javascript:void(0)" class="" id="shapeRect" title="Rectangle" data-style=\'rectangle\'>\r
+               <img src="whiteboard/images/rectangle-sm.png" title="Rectangle"/></a> \r
+             <a href="javascript:void(0)" class="" id="shapeSquare" title="Square" data-style=\'square\'>\r
+               <img src="whiteboard/images/square-sm.png" title="Square"/></a>\r
+             <a href="javascript:void(0)" class="" id="shapeCircle" title="Circle" data-style=\'circle\'>\r
+               <img src="whiteboard/images/circle-sm.png" title="Circle"/></a>\r
+             <a href="javascript:void(0)" class="" id="shapeTriangle" title="Triangle" data-style=\'triangle\'>\r
+                <img src="whiteboard/images/triangle-sm.png" title="Triangle"/></a>\r
+             <a href="javascript:void(0)" class="" id="shapeLine" title="Line" data-style=\'line\'>\r
+                <img src="whiteboard/images/line-sm.png" title="Line"/></a>\r
+             <a href="javascript:void(0)" class="" id="shapeEllipse" title="Ellipse" data-style=\'ellipse\'>\r
+                <img src="whiteboard/images/ellipse-sm.png" title="Ellipse"/></a>               \r
+             <a href=\'javascript:void(0)\' class="eraser" id="btnRemoveShape" title="delete"><div class="trash-bgpicker" style="border:none!important;">\r
+             <i class="fa-trash"></i></div></a>\r
+           </div>                     \r
+           <!-- <input type="text" id="txtShapeOutline" value="2" class="input-align" style="width:18%; float:left;"/>  \r
+           <input type="color" id="txtShapeOutlineClrVal" class="form-control" value="#000000" style="width:23px; float:left;"> \r
+           <input type="text" id="txtShapeOutlineHexavalue" value="#000000" style="width:58%;float:left;margin:0px 5px 0px 4px;"/>-->\r
+         </div>\r
+         <!-- end of code for shapes -->\r
+           \r
+         <!-- HTML of Text -->\r
+         <div id="textOptions" class=\'subProperties left-meni-slide\' style="min-height:135px; max-height:100%;">\r
+            <div class="icon-curve icon-txtoptions"></div>\r
+            <div id="dd">\r
+               <div class="sub-tools items">\r
+                 <a href="javascript:void(0)" id="btnNewText" title="Add New Text"><i class="fa-plus trashh"></i></a>\r
+                 <a href="javascript:void(0)" id="btnRemoveText" title="Delete Text"><i class="fa-trash trashh"></i></a>\r
+                 <a href="javascript:void(0)" id="btnShowMenu" title="Show Text Menu"><i class="fa-bars trashh"></i></a>\r
+               </div>            \r
+             </div>   \r
+           </div>                \r
+         <!-- End of HTML Text -->\r
+         \r
+         <!-- HTML of Image -->\r
+         <div id="imageOptions" class=\'subProperties left-meni-slide\' style="min-height:91px; max-height:100%;">\r
+            <div class="icon-curve icon-imgoptions"></div>\r
+            <div class="sub-tools items">            \r
+               <a href="javascript:void(0)" id="btnNewImage" title="Add New Image"><i class="fa-upload trashh" style="font-size:130%!important;"></i></a>\r
+               <a href="javascript:void(0)" id="btnRemoveImage" class=\'clsCance\' title="Remove Image"><i class="fa-trash trashh"></i></a>  \r
+               <div class="text-tool sub-tools-cat" id="catOne">               \r
+                  <form method="post" enctype="multipart/form-data" id="imageForm" >       \r
+                     <input type="file" id="fileImage" name="fileImage" title="Upload Image from Computer">\r
+                  </form> \r
+                  <div style="clear:both;"></div>                \r
+               </div>   \r
+            </div>               \r
+         </div> \r
+         <!-- End of HTML Image -->\r
+         \r
+         <!-- code of download -->\r
+         <div class="subProperties left-meni-slide" id="downloadOptions" style="min-height:145px; max-height:100%;">\r
+            <div class="icon-curve icon-dwnldoptions"></div>\r
+            <div class="sub-tools items">\r
+              <a href=\'javascript:void(0)\' id="ancDwnJson" title="Download as Board" >\r
+                  <img src="whiteboard/images/download_board.png" class="fa-dwnload" style="width:21px; height:22px;border-radius:0px;"/></a>\r
+              <a href=\'javascript:void(0)\' id="ancDwnJpeg" title="Download as JPEG">\r
+                  <img src="whiteboard/images/download_jpeg.png" class="fa-dwnload" style="width:21px; height:22px;border-radius:0px;"/></a>                           \r
+              <a href=\'javascript:void(0)\'>\r
+                <form method="post" enctype="multipart/form-data" id="uploadForm">       \r
+                   <input type="file" id="fileJson" name="fileJson" title="Upload Board from Computer">\r
+                </form>             \r
+                <div class="fileupload" id="btnUpload" title="Upload Board from Computer"><i class="fa-upload fa-fupload"></i></div>\r
+              </a>\r
+               <div class="clear"></div>  \r
+            </div>\r
+         </div>\r
+         <!-- end of code for download -->\r
+         \r
+     </div>   \r
+   </div>\r
+   <div class="wr-rgt">\r
+      <div class="wr-rgt-cont">\r
+         <div id="btnDisplayMenu" class="textdisplay"> \r
+              <div class="c-two">\r
+                <select id="txtStyle"> \r
+                    <option value=\'Times New Roman\'>Times New Roman</option>\r
+                    <option value=\'Arial\'>Arial</option>                        \r
+                    <option value=\'Helvetica\'>Helvetica</option>\r
+                    <option value=\'sans-serif\'>Sans-serif</option>\r
+                    <option value=\'Impact\'>Impact</option>\r
+                    <option value=\'Open Sans Condensed\'>Open Sans Condensed</option>                     \r
+                    <option value=\'Poiret One\'>Poiret One</option>\r
+                    <option value=\'Lobster\'>Lobster</option>                        \r
+                    <option value=\'Shadows Into Light\'>Shadows Into Light</option>\r
+                    <option value=\'Pacifico\'>Pacifico</option>\r
+                    <option value=\'Sigmar One\'>Sigmar One</option>\r
+                    <option value=\'Courgette\'>Courgette</option>                   \r
+                    <option value=\'Lobster Two\'>Lobster Two</option>\r
+                    <option value=\'Pinyon Script\'>Pinyon Script</option>\r
+                    <option value=\'Playball\'>Playball</option>                     \r
+                    <option value=\'Satisfy\'>Satisfy</option>\r
+                    <option value=\'Great Vibes\'>Great Vibes</option>                        \r
+                    <option value=\'Tangerine\'>Tangerine</option>\r
+                    <option value=\'Luckiest Guy\'>Luckiest Guy</option>\r
+                </select>\r
+               </div>\r
+              <div class="clear"></div>              \r
+              <div class="c-two">\r
+                  <div id="alignleft" class="c-two-three divAlign" data-opt="left"><a href="javascript:void(0);" ><i class="fa-align-left c-border" ></i></a></div>\r
+                  <div id="aligncenter" class="c-two-three divAlign" data-opt="center"><a href="javascript:void(0);" ><i class="fa-align-center c-border"></i></a></div>\r
+                  <div id="alignright" class="c-two-three divAlign" data-opt="right"><a href="javascript:void(0);" >\r
+                  <i class="fa-align-right c-border"></i></a></div>\r
+                  <div id="stylebold" class="c-two-three divStyleBold" data-opt="bold"><a href="javascript:void(0);" ><i class="fa-bold c-border"></i></a></div>\r
+                  <div id="styleitalic" class="c-two-three divStyleItalic" data-opt="italic"><a href="javascript:void(0);" ><i class="fa-italic c-border"></i></a></div>\r
+              </div>\r
+              <div class="clear"></div> \r
+              <div class="divider"></div>\r
+              <textarea placeholder="Enter Text Here" cols="4" rows="3" id="txtText">Sample Text</textarea>\r
+              <div class="divider"></div>               \r
+              <div class="c-two">\r
+                 <div class="c-two-three"> <a>Size:</a> <input type="text" id="txtTextSize" value="20" /> </div>\r
+                 <div class="c-two-three" style="width:36%; padding-left:5px!important;"> <a>Color:</a><div class="clear"></div><input type="color" id="txtClrVal" class="form-control" value="#000000"> <input type="text" id="txtHexavalue" value="#000000" />\r
+                 </div>\r
+                 <div class="c-two-three" style="width:36%;"> <a>Background:</a><div class="clear"></div> <input type="color" id="txtBGClrVal" class="form-control" value="#000000"> <input type="text" id="txtBGHexavalue" value="#000000" /> </div><div class="clear"></div>\r
+              </div>\r
+              <div class="divider"></div>\r
+              <div class="c-two"> \r
+               <div class="c-two-two" style="width:99%!important; text-align:left;"> \r
+                  <a>Border:</a><div class="clear"></div> \r
+                  <input type="text" id="txtOutline" value="0" style="width:35%; float:left;"/>  \r
+                  <input type="color" id="txtOutlineClrVal" class="form-control" value="#000000" style="width:23px; float:left; margin:-2px 0px 0px 6px; height:22px;"> \r
+                  <input type="text" id="txtOutlineHexavalue" value="#000000" style="width:36%;float:left;padding:0px 5px; margin:-3px 0px 0px 4px;"/>\r
+               </div>\r
+              </div><div class="clear"></div> \r
+            </div>\r
+      </div>            \r
+   </div>\r
+   \r
+   <!-- code of Help -->      \r
+   <div class="subProperties helpclas" id="helpOptions">\r
+      <div class="sub-tools" style="right:0px!important; background:#fff!important; margin:0px!important;">  \r
+         <div class="easyui-accordion" style="width:242px;" > \r
+            <div title="Background" data-options="iconCls:\'\'" style="overflow:auto;padding:0px;">\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-background-color\'>How to use Background Tool</a></div>\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-background-patterns\'>How to use Background Patterns</a></div>\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-background-upload-image\'>How to use Upload Image</a></div>                 \r
+            </div>               \r
+            <div title="Pencil" data-options="iconCls:\'\'" style="overflow:auto;padding:0px;">\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-pencil-width\'>How to use Pencil Tool</a></div>        \r
+            </div>\r
+            <div title="Erase" data-options="iconCls:\'\'" style="overflow:auto;padding:0px;">\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-erase\'>How to use Erase Tool</a></div>        \r
+            </div>\r
+            <div title="Shape" data-options="iconCls:\'\'" style="overflow:auto;padding:0px;">\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-shape-icons\'>How to use Shapes</a></div>\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-shape-colour\'>How to use Shape Background Fill</a></div>\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-shape-border\'>How to use Shape Border</a></div>                 \r
+            </div> \r
+            <div title="Text" data-options="iconCls:\'\'" style="overflow:auto;padding:0px;">\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-text-addtext\'>How to Add Text</a></div>\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-text-fontfamily\'>How to Add Font Family to Text</a></div>  \r
+               <div class="help-acc"><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-text-bold\'>How to Add Bold to Text</a></div>\r
+               <div class="help-acc"><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-text-changetext\'>How to Edit Text</a></div>\r
+               <div class="help-acc"><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-text-textbgcolor\'>How to Add Bakground Color, Font-size, Color</a></div>\r
+               <div class="help-acc"><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-text-textbordercolor\'>How to Add Border to Text</a></div>\r
+            </div> \r
+            <div title="Image" data-options="iconCls:\'\'" style="overflow:auto;padding:0px;">\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-image-addremove\'>How to use Image Tool</a></div>        \r
+            </div>\r
+            <div title="Upload/Download" data-options="iconCls:\'\'" style="overflow:auto;padding:0px;">\r
+               <div class="help-acc" ><a class="ancHelp" href="javascript:void(0)" alt=\'how-to-use-download-upload\'>How to use Upload/Download Tool</a></div>        \r
+            </div>\r
+          </div>\r
+      </div>\r
+   </div>\r
+   <!-- end of code Help -->\r
+   \r
+   <!--STAGE ENDS -->\r
+   <div id="helpWindow" class="easyui-window" title="Help Guide for Whiteboard" data-options="iconCls:\'icon-help\'" style="width:955px;height:500px;">\r
+      <img src=""/>\r
+   </div>\r
+\r
+\r
+<script src="theme/js/lightslider.js"></script>\r
+<script>\r
+$(document).ready(function(event) {\r
+    var room_id, user_name;\r
+    ion.sound({\r
+        sounds: [{\r
+            name: "bell_ring"\r
+        }],\r
+        path: "/theme/js/sounds/",\r
+        preload: true,\r
+        multiplay: true,\r
+        volume: 0.9\r
+    });\r
+    $(\'#dlg\').dialog(\'close\');\r
+    $(\'#invite\').dialog(\'close\');\r
+    $(\'#ancStartChat\').bind(\'click\', function() {\r
+        $(\'#dlg\').dialog(\'open\');\r
+    });\r
+    $(\'#eids\').textbox({\r
+        onClickButton: function() {\r
+            if ($(\'#eids\').validatebox(\'isValid\')) {\r
+                var url = "board-invite.php";\r
+                var inputs = {\r
+                    \'mid\': room_id,\r
+                    \'user\': user_name,\r
+                    \'emails\': $(\'#eids\').val()\r
+                };\r
+                $.ajax({\r
+                    type: "POST",\r
+                    url: url,\r
+                    data: inputs,\r
+                    dataType: \'json\',\r
+                    beforeSend: function() {\r
+                        $(\'#invite\').dialog(\'close\');\r
+                        $("#wait").html("Sending invitation...");\r
+                        $(".wrapLoader").css({\r
+                            "visibility": "visible"\r
+                        });\r
+                    },\r
+                    success: function(data) {\r
+                        $(".wrapLoader").css({\r
+                            "visibility": "hidden"\r
+                        });\r
+                        $.messager.alert(\'Message\', data.message);\r
+                    },\r
+                    error: function(data) {\r
+                        $(".wrapLoader").css({\r
+                            "visibility": "hidden"\r
+                        });\r
+                        $.messager.alert(\'Message\', data.message);\r
+                    }\r
+                });\r
+            }\r
+        }\r
+    });\r
+    window.onbeforeunload = function() {\r
+        return "Leaving this page may cause loss of your work!";\r
+    };\r
+    $(\'.subProperties\').hide();\r
+    //$(\'#penEdit\').show();\r
+    var eraserFlag = false;\r
+    var eraserColor = \'\';\r
+    var eraserArray = new Array;\r
+    var totCount = 0;\r
+    var totArray = new Array;\r
+    var gcanvas = new fabric.Canvas(\'canvasBoard\', {\r
+        isDrawingMode: true,\r
+        backgroundColor: \'#ffffff\'\r
+    });\r
+    fabric.Object.prototype.transparentCorners = false;\r
+    gcanvas.setHeight($(\'#center\').height());\r
+    gcanvas.setWidth($(\'#center\').width());\r
+    gcanvas.freeDrawingBrush.color = \'#000000\';\r
+    gcanvas.freeDrawingBrush.width = 2;\r
+\r
+    $("#cc").layout(\'panel\', \'east\').panel({\r
+        onExpand: function() {\r
+            gcanvas.setWidth($(\'#center\').width() - 220);\r
+            gcanvas.renderAll();\r
+        },\r
+        onCollapse: function() {\r
+            gcanvas.setWidth($(\'#center\').width());\r
+            gcanvas.renderAll();\r
+        }\r
+    });\r
+\r
+    /* Background Color */\r
+\r
+    $(\'#ancBackground\').click(function() {\r
+        $(\'.subProperties\').hide();\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            //title:\'Background\',\r
+            //iconCls:\'icon-bgcolor\'\r
+        });\r
+        gcanvas.isDrawingMode = false;\r
+        gcanvas.forEachObject(function(obj) {\r
+            obj.set({\r
+                hasControls: false,\r
+                hasBorders: false,\r
+                selectable: false\r
+            });\r
+        });\r
+        gcanvas.renderAll();\r
+        /*\r
+              if($("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+      $(\'#bgColorpick\').show();\r
+        \r
+     // $(\'#bgColorpick\').animate({\r
+     //           width: "toggle"\r
+     //     });/\r
+\r
+    });\r
+    $(\'.clsBgColor\').click(function() {\r
+        var bgclr = $(this).children().css(\'background-color\');\r
+        bgclr = rgb2hex(bgclr);\r
+        if (eraserFlag) {\r
+            gcanvas.forEachObject(function(obj) {\r
+                if (typeof obj.stroke == \'object\') {\r
+                    obj.stroke = \'#ffffff\';\r
+                } else {\r
+                    if (obj.stroke != eraserColor) {\r
+                        if (obj.stroke == \'#ffffff\' || obj.stroke == \'#fff\') {\r
+                            obj.stroke = bgclr;\r
+                            eraserColor = bgclr;\r
+                        } else {\r
+                            eraserColor = bgclr;\r
+                        }\r
+                    } else {\r
+                        obj.stroke = bgclr;\r
+                    }\r
+                }\r
+            });\r
+        }\r
+        gcanvas.setBackgroundImage(\'\');\r
+        gcanvas.setBackgroundColor(\'\');\r
+        $(\'#txtBgColorVal\').val(bgclr);\r
+        gcanvas.setBackgroundColor(bgclr);\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    function clearSlide() {\r
+        if (gcanvas.getObjects().length > 0) {\r
+            gcanvas.clear();\r
+            gcanvas.freeDrawingBrush.width = 2;\r
+            gcanvas.freeDrawingBrush.color = \'#000000\';\r
+            eraserFlag = false;\r
+            gcanvas.renderAll();\r
+            $(\'#lineSlide\').numberspinner({\r
+                value: 2\r
+            });\r
+            $(\'#eraserSlide\').numberspinner({\r
+                value: 2\r
+            });\r
+            $(\'#txtPencilClrVal\').val(\'#000000\');\r
+            $(\'#txtPencilClrHexa\').val(\'#000000\');\r
+            $(\'#txtShapeOutline\').val(2);\r
+            $(\'#txtShapeOutlineHexavalue\').val(\'#000000\');\r
+            $(\'#txtShapeOutlineClrVal\').val(\'#000000\');\r
+            $(\'#txtFillClrVal\').val(\'#000000\');\r
+            $(\'#txtFillClrHexa\').val(\'#000000\');\r
+            txtNum = 1;\r
+            shapenum = 1;\r
+        }\r
+    }\r
+\r
+    function displaySlide(src) {\r
+        if (!(src.length > 0)) {\r
+            return false;\r
+        }\r
+        var imgObj = new Image();\r
+        imgObj.crossOrigin = "Anonymous";\r
+        imgObj.onload = function() {\r
+            var image = new fabric.Image(imgObj);\r
+            gcanvas.setBackgroundColor(\'#ffffff\');\r
+            gcanvas.setBackgroundImage(image, gcanvas.renderAll.bind(gcanvas), {\r
+                scaleY: gcanvas.height / image.height,\r
+                scaleX: gcanvas.width / image.width,\r
+                backgroundImageStretch: true\r
+            });\r
+        }\r
+        imgObj.src = src;\r
+        $(\'img[seq]\').attr("style", "border:1px solid #ccc");\r
+        $(\'img[seq="\' + slideSeq + \'"]\').attr("style", "border:2px solid #407450");\r
+    }\r
+    var slideSeq = 0,\r
+        maxSeq = 0,\r
+        slideSrc = "",\r
+        baseURL = "";\r
+    $(document).on("click", \'#south .clsBgColor img\', function(event) {\r
+        slideSrc = $(this).attr("alt");\r
+        slideSeq = parseInt($(this).attr("seq"));\r
+        maxSeq = parseInt($(this).attr("max"));\r
+        baseURL = $(this).attr("base");\r
+        clearSlide();\r
+        displaySlide(slideSrc);\r
+    });\r
+    $(document).keydown(function(e) {\r
+        /* Previous slide */\r
+        if (e.keyCode == 37 || e.keyCode == 40) {\r
+            if (slideSeq > 0) {\r
+                slideSeq = slideSeq - 1;\r
+                slideSrc = baseURL + "/" + "slide-" + slideSeq + ".jpg";\r
+                clearSlide();\r
+                displaySlide(slideSrc);\r
+            }\r
+            return false;\r
+        }\r
+    });\r
+    $(document).keydown(function(e) {\r
+        /* Next slide */\r
+        if (e.keyCode == 38 || e.keyCode == 39) {\r
+            if (slideSeq < maxSeq - 1) {\r
+                slideSeq = slideSeq + 1;\r
+                slideSrc = baseURL + "/" + "slide-" + slideSeq + ".jpg";\r
+                clearSlide();\r
+                displaySlide(slideSrc);\r
+            }\r
+            return false;\r
+        }\r
+    });\r
+    $(\'#txtBgColorVal\').change(function() {\r
+        var bgclr = $(this).val();\r
+        if (eraserFlag) {\r
+            gcanvas.forEachObject(function(obj) {\r
+                if (typeof obj.stroke == \'object\') {\r
+                    obj.stroke = \'#ffffff\';\r
+                } else {\r
+                    if (obj.stroke != eraserColor) {\r
+                        eraserColor = bgclr;\r
+                    } else {\r
+                        obj.stroke = bgclr;\r
+                    }\r
+                }\r
+            });\r
+        }\r
+        gcanvas.setBackgroundImage(\'\');\r
+        gcanvas.setBackgroundColor(\'\');\r
+        gcanvas.setBackgroundColor(bgclr);\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    $(\'.bgclpkr\').click(function() {\r
+        var src = $(this).children().attr(\'src\');\r
+        gcanvas.setBackgroundImage(\'\');\r
+        gcanvas.setBackgroundColor(\'\');\r
+        gcanvas.setBackgroundColor({\r
+            source: src,\r
+            repeat: \'repeat\'\r
+        }, function() {\r
+            gcanvas.renderAll();\r
+        });\r
+        slideSrc = "";\r
+        /*  if(eraserFlag)\r
+         {  \r
+            gcanvas.forEachObject(function(obj){\r
+               if(typeof obj.stroke == \'object\'){   \r
+                   obj.stroke = \'#ffffff\';  \r
+               } else {\r
+                  if(eraserArray.indexOf(obj.stroke) != -1){             \r
+                     obj.stroke = \'#ffffff\';\r
+                  } \r
+               } \r
+            });           \r
+         }    */\r
+    });\r
+    $(\'#btnUploadPattern\').click(function() {\r
+        $(\'#filePattern\').trigger(\'click\');\r
+    });\r
+    $(\'#filePattern\').change(function(e) {\r
+        var file = $(\'#filePattern\').val();\r
+        var exts = [\'jpg\', \'jpeg\', \'png\'];\r
+        if (file.length <= 0) {\r
+            alert("Please select a file from local drive.");\r
+            $(\'#filePattern\').focus();\r
+            return false;\r
+        }\r
+        var ext = file.split(\'.\');\r
+        ext = ext.reverse();\r
+        if ($.inArray(ext[0].toLowerCase(), exts) < 0) {\r
+            alert("Please select jpg/jpeg/png format files only.");\r
+            $(\'#filePattern\').focus();\r
+            return false;\r
+        }\r
+        var reader = new FileReader();\r
+        reader.onload = function(event) {\r
+            var imgObj = new Image;\r
+            imgObj.src = event.target.result;\r
+            imgObj.onload = function() {\r
+                var image = new fabric.Image(imgObj);\r
+                gcanvas.setBackgroundColor(\'#ffffff\');\r
+                gcanvas.setBackgroundImage(image, gcanvas.renderAll.bind(gcanvas), {\r
+                    scaleY: gcanvas.height / image.height,\r
+                    scaleX: gcanvas.width / image.width\r
+                });\r
+                slideSrc = "";\r
+            }\r
+        }\r
+        reader.readAsDataURL(e.target.files[0]);\r
+    });\r
+\r
+    /* Pencil */\r
+\r
+    $(\'#ancPencil\').click(function() {\r
+        readdFlag = 0;\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            //title:\'Pencil\',\r
+            //iconCls:\'icon-pencil\'\r
+        });\r
+        eraserFlag = false;\r
+        gcanvas.isDrawingMode = true;\r
+        gcanvas.freeDrawingBrush.color = $(\'#txtPencilClrVal\').val();\r
+        gcanvas.freeDrawingBrush.width = $(\'#lineSlide\').val();\r
+        gcanvas.forEachObject(function(obj) {\r
+            obj.set({\r
+                hasControls: false,\r
+                hasBorders: false,\r
+                selectable: false\r
+            });\r
+        });\r
+        gcanvas.renderAll();\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $(\'#penEdit\').show();\r
+    });\r
+    $(\'.clsPencilColor\').click(function() {\r
+        var pclr = $(this).children().css(\'background-color\');\r
+        pclr = rgb2hex(pclr);\r
+        $(\'#txtPencilClrVal\').val(pclr);\r
+        $(\'#txtPencilClrHexa\').val(pclr);\r
+        gcanvas.freeDrawingBrush.color = pclr;\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    function rgb2hex(rgb) {\r
+        rgb = rgb.match(/^rgba?[\\s+]?\\([\\s+]?(\\d+)[\\s+]?,[\\s+]?(\\d+)[\\s+]?,[\\s+]?(\\d+)[\\s+]?/i);\r
+        return (rgb && rgb.length === 4) ? "#" +\r
+            ("0" + parseInt(rgb[1], 10).toString(16)).slice(-2) +\r
+            ("0" + parseInt(rgb[2], 10).toString(16)).slice(-2) +\r
+            ("0" + parseInt(rgb[3], 10).toString(16)).slice(-2) : \'\';\r
+    }\r
+    $(\'#lineSlide\').numberspinner({\r
+        min: 1,\r
+        max: 50,\r
+        increment: 1,\r
+        editable: true,\r
+        value: 2,\r
+        onChange: function(nv) {\r
+            gcanvas.freeDrawingBrush.color = $(\'#txtPencilClrVal\').val();\r
+            gcanvas.freeDrawingBrush.width = parseInt(nv);\r
+            gcanvas.renderAll();\r
+        }\r
+    });\r
+    $(\'#txtPencilClrVal\').change(function() {\r
+        $(\'#txtPencilClrHexa\').val($(this).val());\r
+        gcanvas.freeDrawingBrush.color = $(this).val();\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtPencilClrHexa\').keyup(function() {\r
+        $(\'#txtPencilClrVal\').val($(this).val());\r
+        gcanvas.freeDrawingBrush.color = $(this).val();\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    /* Eraser */\r
+    $(\'#ancEraser\').click(function() {\r
+        eraserFlag = true;\r
+        if (typeof gcanvas.backgroundColor == \'object\') {\r
+            eraserColor = \'#ffffff\';\r
+        } else {\r
+            eraserColor = gcanvas.backgroundColor;\r
+        }\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            // title:\'Eraser\',\r
+            //iconCls:\'icon-eraser\'\r
+        });\r
+        eraserArray.push(eraserColor);\r
+        gcanvas.freeDrawingBrush.color = eraserColor;\r
+        gcanvas.freeDrawingBrush.width = $(\'#eraserSlide\').val();\r
+        gcanvas.isDrawingMode = true;\r
+        gcanvas.forEachObject(function(obj) {\r
+            obj.set({\r
+                hasControls: false,\r
+                hasBorders: false,\r
+                selectable: false\r
+            });\r
+        });\r
+        gcanvas.renderAll();\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $(\'#eraseOptions\').show();\r
+    });\r
+\r
+    $(\'#eraserSlide\').numberspinner({\r
+        min: 1,\r
+        max: 50,\r
+        increment: 1,\r
+        editable: true,\r
+        value: 2,\r
+        onChange: function(nv) {\r
+            eraserFlag = true;\r
+            eraserColor = gcanvas.backgroundColor;\r
+            gcanvas.freeDrawingBrush.color = eraserColor;\r
+            gcanvas.freeDrawingBrush.width = parseInt(nv);\r
+            gcanvas.renderAll();\r
+        }\r
+    });\r
+\r
+    /* Shapes */\r
+\r
+    var shapeArry = new Array();\r
+    var shapenum = 1;\r
+    $(\'#ancShape\').click(function() {\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            //title:\'Shapes\',\r
+            //iconCls:\'icon-shapes\'\r
+        });\r
+        eraserFlag = false;\r
+        gcanvas.isDrawingMode = false;\r
+        gcanvas.forEachObject(function(obj) {\r
+            obj.set({\r
+                hasControls: false,\r
+                hasBorders: false,\r
+                selectable: false\r
+            });\r
+        });\r
+        gcanvas.renderAll();\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $(\'#shapeOptions\').show();\r
+        if (shapenum > 1) {\r
+            for (var i = 1; i <= shapenum - 1; i++) {\r
+                shapeArry[i].set({\r
+                    hasControls: true,\r
+                    hasBorders: true,\r
+                    selectable: true\r
+                });\r
+            }\r
+        }\r
+    });\r
+    $(\'.shapeFillColor\').click(function() {\r
+        var fclr = $(this).children().css(\'background-color\');\r
+        fclr = rgb2hex(fclr);\r
+        $(\'#txtFillClrVal\').val(fclr);\r
+        $(\'#txtFillClrHexa\').val(fclr);\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setFill(fclr);\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#shapeRect\').click(function() {\r
+        addRect(shapenum);\r
+        shapenum++;\r
+    });\r
+    $(\'#shapeSquare\').click(function() {\r
+        addSquare(shapenum);\r
+        shapenum++;\r
+    });\r
+    $(\'#shapeCircle\').click(function() {\r
+        addCircle(shapenum);\r
+        shapenum++;\r
+    });\r
+    $(\'#shapeTriangle\').click(function() {\r
+        addTriangle(shapenum);\r
+        shapenum++;\r
+    });\r
+    $(\'#shapeLine\').click(function() {\r
+        addLine(shapenum);\r
+        shapenum++;\r
+    });\r
+    $(\'#shapeEllipse\').click(function() {\r
+        addEllipse(shapenum);\r
+        shapenum++;\r
+    });\r
+\r
+    function addRect(shapenum) {\r
+        shapeArry[shapenum] = new fabric.Rect({\r
+            width: 200,\r
+            height: 100,\r
+            left: 50,\r
+            top: 50,\r
+            fill: \'\',\r
+            stroke: \'#000000\',\r
+            strokeWidth: 2\r
+        });\r
+        shapeArry[shapenum].on(\'selected\', function(e) {\r
+            $(\'#txtFillClrVal\').val(this.getFill());\r
+            $(\'#txtFillClrHexa\').val(this.getFill());\r
+            $(\'#txtShapeOutline\').val(this.getStrokeWidth());\r
+            $(\'#txtShapeOutlineClrVal\').val(this.getStroke());\r
+            $(\'#txtShapeOutlineHexavalue\').val(this.getStroke());\r
+            gcanvas.bringForward(this);\r
+        });\r
+        gcanvas.add(shapeArry[shapenum]);\r
+        gcanvas.centerObject(shapeArry[shapenum]);\r
+        shapeArry[shapenum].setCoords();\r
+        gcanvas.setActiveObject(shapeArry[shapenum]);\r
+        gcanvas.renderAll();\r
+    };\r
+\r
+    function addSquare(shapenum) {\r
+        shapeArry[shapenum] = new fabric.Rect({\r
+            width: 100,\r
+            height: 100,\r
+            left: 150,\r
+            top: 50,\r
+            fill: \'\',\r
+            stroke: \'#000000\',\r
+            strokeWidth: 2\r
+        });\r
+        shapeArry[shapenum].on(\'selected\', function(e) {\r
+            $(\'#txtFillClrVal\').val(this.getFill());\r
+            $(\'#txtFillClrHexa\').val(this.getFill());\r
+            $(\'#txtShapeOutline\').val(this.getStrokeWidth());\r
+            $(\'#txtShapeOutlineClrVal\').val(this.getStroke());\r
+            $(\'#txtShapeOutlineHexavalue\').val(this.getStroke());\r
+            gcanvas.bringForward(this);\r
+        });\r
+        gcanvas.add(shapeArry[shapenum]);\r
+        gcanvas.centerObject(shapeArry[shapenum]);\r
+        shapeArry[shapenum].setCoords();\r
+        gcanvas.setActiveObject(shapeArry[shapenum]);\r
+        gcanvas.renderAll();\r
+    };\r
+\r
+    function addCircle(shapenum) {\r
+        shapeArry[shapenum] = new fabric.Circle({\r
+            radius: 50,\r
+            fill: \'\',\r
+            stroke: \'#000000\',\r
+            strokeWidth: 2\r
+        });\r
+        shapeArry[shapenum].on(\'selected\', function(e) {\r
+            $(\'#txtFillClrVal\').val(this.getFill());\r
+            $(\'#txtFillClrHexa\').val(this.getFill());\r
+            $(\'#txtShapeOutline\').val(this.getStrokeWidth());\r
+            $(\'#txtShapeOutlineClrVal\').val(this.getStroke());\r
+            $(\'#txtShapeOutlineHexavalue\').val(this.getStroke());\r
+            gcanvas.bringForward(this);\r
+        });\r
+        gcanvas.add(shapeArry[shapenum]);\r
+        gcanvas.centerObject(shapeArry[shapenum]);\r
+        shapeArry[shapenum].setCoords();\r
+        gcanvas.setActiveObject(shapeArry[shapenum]);\r
+        gcanvas.renderAll();\r
+    };\r
+\r
+    function addTriangle(shapenum) {\r
+        shapeArry[shapenum] = new fabric.Triangle({\r
+            width: 100,\r
+            height: 100,\r
+            fill: \'\',\r
+            stroke: \'#000000\',\r
+            strokeWidth: 2\r
+        });\r
+        shapeArry[shapenum].on(\'selected\', function(e) {\r
+            $(\'#txtFillClrVal\').val(this.getFill());\r
+            $(\'#txtFillClrHexa\').val(this.getFill());\r
+            $(\'#txtShapeOutline\').val(this.getStrokeWidth());\r
+            $(\'#txtShapeOutlineClrVal\').val(this.getStroke());\r
+            $(\'#txtShapeOutlineHexavalue\').val(this.getStroke());\r
+            gcanvas.bringForward(this);\r
+        });\r
+        gcanvas.add(shapeArry[shapenum]);\r
+        gcanvas.centerObject(shapeArry[shapenum]);\r
+        shapeArry[shapenum].setCoords();\r
+        gcanvas.setActiveObject(shapeArry[shapenum]);\r
+        gcanvas.renderAll();\r
+    };\r
+\r
+    function addLine(shapenum) {\r
+        shapeArry[shapenum] = new fabric.Line([0, 0, 200, 0], {\r
+            fill: \'#000000\',\r
+            stroke: \'#000000\',\r
+            strokeWidth: 2\r
+        });\r
+        shapeArry[shapenum].on(\'selected\', function(e) {\r
+            $(\'#txtFillClrVal\').val(this.getFill());\r
+            $(\'#txtFillClrHexa\').val(this.getFill());\r
+            $(\'#txtShapeOutline\').val(this.getStrokeWidth());\r
+            $(\'#txtShapeOutlineClrVal\').val(this.getStroke());\r
+            $(\'#txtShapeOutlineHexavalue\').val(this.getStroke());\r
+            gcanvas.bringForward(this);\r
+        });\r
+        gcanvas.add(shapeArry[shapenum]);\r
+        gcanvas.centerObject(shapeArry[shapenum]);\r
+        shapeArry[shapenum].setCoords();\r
+        gcanvas.setActiveObject(shapeArry[shapenum]);\r
+        gcanvas.renderAll();\r
+    };\r
+\r
+    function addEllipse(shapenum) {\r
+        shapeArry[shapenum] = new fabric.Ellipse({\r
+            fill: \'\',\r
+            stroke: \'#000000\',\r
+            strokeWidth: 2,\r
+            rx: 100,\r
+            ry: 50\r
+        });\r
+        shapeArry[shapenum].on(\'selected\', function(e) {\r
+            $(\'#txtFillClrVal\').val(this.getFill());\r
+            $(\'#txtFillClrHexa\').val(this.getFill());\r
+            $(\'#txtShapeOutline\').val(this.getStrokeWidth());\r
+            $(\'#txtShapeOutlineClrVal\').val(this.getStroke());\r
+            $(\'#txtShapeOutlineHexavalue\').val(this.getStroke());\r
+            gcanvas.bringForward(this);\r
+        });\r
+        gcanvas.add(shapeArry[shapenum]);\r
+        gcanvas.centerObject(shapeArry[shapenum]);\r
+        shapeArry[shapenum].setCoords();\r
+        gcanvas.setActiveObject(shapeArry[shapenum]);\r
+        gcanvas.renderAll();\r
+    };\r
+\r
+    $(\'#txtFillClrHexa\').keyup(function() {\r
+        $(\'#txtFillClrVal\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setFill($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtFillClrVal\').change(function() {\r
+        $(\'#txtFillClrHexa\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setFill($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtShapeOutline\').keyup(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.set({\r
+            strokeWidth: parseInt($(this).val())\r
+        });\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtShapeOutlineHexavalue\').keyup(function() {\r
+        $(\'#txtShapeOutlineClrVal\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setStroke($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtShapeOutlineClrVal\').change(function() {\r
+        $(\'#txtShapeOutlineHexavalue\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setStroke($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    $(\'.clrDynamicCanvas\').click(function() {\r
+        if (gcanvas.getObjects().length > 0) {\r
+            var confirmFlag = confirm("Do you really want to clear the board?");\r
+            if (confirmFlag == true) {\r
+                gcanvas.clear();\r
+                gcanvas.freeDrawingBrush.width = 2;\r
+                gcanvas.freeDrawingBrush.color = \'#000000\';\r
+                eraserFlag = false;\r
+                gcanvas.renderAll();\r
+                $(\'#lineSlide\').numberspinner({\r
+                    value: 2\r
+                });\r
+                $(\'#eraserSlide\').numberspinner({\r
+                    value: 2\r
+                });\r
+                $(\'#txtPencilClrVal\').val(\'#000000\');\r
+                $(\'#txtPencilClrHexa\').val(\'#000000\');\r
+                $(\'#txtShapeOutline\').val(2);\r
+                $(\'#txtShapeOutlineHexavalue\').val(\'#000000\');\r
+                $(\'#txtShapeOutlineClrVal\').val(\'#000000\');\r
+                $(\'#txtFillClrVal\').val(\'#000000\');\r
+                $(\'#txtFillClrHexa\').val(\'#000000\');\r
+                txtNum = 1;\r
+                shapenum = 1;\r
+            }\r
+        }\r
+    });\r
+\r
+    $(\'#btnRemoveShape\').click(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        gcanvas.remove(cobj);\r
+        gcanvas.renderAll();\r
+        $(\'#txtShapeOutline\').val(2);\r
+        $(\'#txtShapeOutlineHexavalue\').val(\'#000000\');\r
+        $(\'#txtShapeOutlineClrVal\').val(\'#000000\');\r
+        $(\'#txtFillClrVal\').val(\'#000000\');\r
+        $(\'#txtFillClrHexa\').val(\'#000000\');\r
+    });\r
+\r
+    /* Text */\r
+\r
+    var txtNum = 1;\r
+    var iTextArr = new Array();\r
+    var textArr = new Array();\r
+    var fontArr = new Array();\r
+    var alignArr = new Array();\r
+    var styleArr = new Array();\r
+    var sizeArr = new Array();\r
+    var colorArr = new Array();\r
+\r
+    $(\'#ancText\').click(function() {\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            //  title:\'Text\',\r
+            // iconCls:\'icon-text\'\r
+        });\r
+        eraserFlag = false;\r
+        gcanvas.isDrawingMode = false;\r
+        gcanvas.forEachObject(function(obj) {\r
+            obj.set({\r
+                hasControls: false,\r
+                hasBorders: false,\r
+                selectable: false\r
+            });\r
+        });\r
+        gcanvas.renderAll();\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $(\'#textOptions\').show();\r
+        if (txtNum > 1) {\r
+            for (var i = 1; i <= txtNum - 1; i++) {\r
+                iTextArr[i].set({\r
+                    hasControls: true,\r
+                    hasBorders: true,\r
+                    selectable: true\r
+                });\r
+            }\r
+        }\r
+        addText(txtNum);\r
+        txtNum++;\r
+    });\r
+\r
+    function addText(num) {\r
+        textArr[num] = \'Sample Text\';\r
+        fontArr[num] = \'Times New Roman\';\r
+        alignArr[num] = \'left\';\r
+        sizeArr[num] = \'20\';\r
+        styleArr[num] = \'normal\';\r
+        colorArr[num] = \'#ff0000\';\r
+        $(\'.divStyleBold i, .divStyleItalic i\').css({\r
+            \'background-color\': "#ffffff",\r
+            \'color\': \'#000000\'\r
+        });\r
+        $(\'.divAlign i\').css({\r
+            \'background-color\': "#ffffff",\r
+            \'color\': \'#000000\'\r
+        });\r
+        $(\'#alignleft i\').css({\r
+            \'background-color\': "#424242",\r
+            \'color\': \'#ffffff\'\r
+        });\r
+        iTextArr[num] = new fabric.IText(textArr[num], {\r
+            fill: colorArr[num],\r
+            hasControls: true,\r
+            hasBorders: true,\r
+            hasRotatingPoint: true\r
+        });\r
+        iTextArr[num].set({\r
+            fontFamily: fontArr[num],\r
+            textAlign: alignArr[num],\r
+            fontStyle: styleArr[num],\r
+            fontSize: sizeArr[num],\r
+            padding: 5\r
+        });\r
+        iTextArr[num].on(\'selected\', function(e) {\r
+            $(\'#txtStyle\').val(this.getFontFamily());\r
+            $(\'#txtText\').val(this.getText());\r
+            $(\'#txtTextSize\').val(this.getFontSize());\r
+            $(\'#txtClrVal\').val(this.getFill());\r
+            $(\'#txtHexavalue\').val(this.getFill());\r
+            $(\'#txtOutline\').val(this.getStrokeWidth());\r
+            $(\'#txtOutlineClrVal\').val(this.getStroke());\r
+            $(\'#txtOutlineHexavalue\').val(this.getStroke());\r
+            $(\'#txtBGClrVal\').val(this.getTextBackgroundColor());\r
+            $(\'#txtBGHexavalue\').val(this.getTextBackgroundColor());\r
+            var alignopt = this.getTextAlign();\r
+            var styleopt = this.getFontStyle();\r
+            var weightopt = this.getFontWeight();\r
+            $(\'.divAlign i\').css({\r
+                \'background-color\': "#ffffff",\r
+                \'color\': \'#000000\'\r
+            });\r
+            $(\'#align\' + alignopt + \' i\').css({\r
+                \'background-color\': "#424242",\r
+                \'color\': \'#ffffff\'\r
+            });\r
+            $(\'.divStyleBold i\').css({\r
+                \'background-color\': "#ffffff",\r
+                \'color\': \'#000000\'\r
+            });\r
+            $(\'#style\' + weightopt + \' i\').css({\r
+                \'background-color\': "#424242",\r
+                \'color\': \'#ffffff\'\r
+            });\r
+            $(\'.divStyleItalic i\').css({\r
+                \'background-color\': "#ffffff",\r
+                \'color\': \'#000000\'\r
+            });\r
+            $(\'#style\' + styleopt + \' i\').css({\r
+                \'background-color\': "#424242",\r
+                \'color\': \'#ffffff\'\r
+            });\r
+        });\r
+        gcanvas.on(\'text:changed\', function(e) {\r
+            var cobj = gcanvas.getActiveObject();\r
+            $(\'#txtText\').val(cobj.getText());\r
+        });\r
+        gcanvas.add(iTextArr[num]);\r
+        gcanvas.setActiveObject(iTextArr[num]);\r
+        gcanvas.centerObject(iTextArr[num]);\r
+        iTextArr[num].setCoords();\r
+        gcanvas.renderAll();\r
+    }\r
+    $(\'#btnNewText\').click(function() {\r
+        addText(txtNum);\r
+        txtNum++;\r
+    });\r
+    $(\'#btnRemoveText\').click(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        gcanvas.remove(cobj);\r
+        $(\'.divStyleBold i, .divStyleItalic i\').css({\r
+            \'background-color\': "#ffffff",\r
+            \'color\': \'#000000\'\r
+        });\r
+        $(\'.divAlign i\').css({\r
+            \'background-color\': "#ffffff",\r
+            \'color\': \'#000000\'\r
+        });\r
+        $(\'#alignleft i\').css({\r
+            \'background-color\': "#424242",\r
+            \'color\': \'#ffffff\'\r
+        });\r
+        $(\'#txtStyle\').val(\'Times New Roman\');\r
+        $(\'#txtText\').val(\'Sample Text\');\r
+        $(\'#txtTextSize\').val(20);\r
+        $(\'#txtClrVal\').val(\'#ff0000\');\r
+        $(\'#txtHexavalue\').val(\'#ff0000\');\r
+        $(\'#txtOutline\').val(1);\r
+        $(\'#txtOutlineClrVal\').val(\'#000000\');\r
+        $(\'#txtOutlineHexavalue\').val(\'#000000\');\r
+        $(\'#txtBGClrVal\').val(\'#000000\');\r
+        $(\'#txtBGHexavalue\').val(\'#000000\');\r
+    });\r
+    $(\'#txtStyle\').change(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.set({\r
+            fontFamily: $(this).val()\r
+        });\r
+        gcanvas.renderAll();\r
+    });\r
+    var flagAlign = 1;\r
+    $(\'.divAlign\').click(function() {\r
+        $(\'.divAlign i\').css({\r
+            \'background-color\': "#ffffff",\r
+            \'color\': \'#000000\'\r
+        });\r
+        $(this).find(\'i\').css({\r
+            \'background-color\': "#424242",\r
+            \'color\': \'#ffffff\'\r
+        });\r
+        var cobj = gcanvas.getActiveObject();\r
+        var v = $(this).attr(\'data-opt\');\r
+        cobj.set({\r
+            textAlign: v\r
+        });\r
+        gcanvas.renderAll();\r
+    });\r
+    var flagBold = 0;\r
+    var flagItalic = 0;\r
+    $(\'.divStyleBold\').click(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        if (flagBold) {\r
+            flagBold = 0;\r
+            if (flagItalic == 1) {\r
+                cobj.set({\r
+                    fontStyle: \'italic\',\r
+                    fontWeight: \'\'\r
+                });\r
+            } else {\r
+                cobj.set({\r
+                    fontStyle: \'normal\',\r
+                    fontWeight: \'\'\r
+                });\r
+            }\r
+            $(\'.divStyleBold i\').css({\r
+                \'background-color\': "#ffffff",\r
+                \'color\': \'#000000\'\r
+            });\r
+        } else {\r
+            flagBold = 1;\r
+            if (flagItalic == 1) {\r
+                cobj.set({\r
+                    fontStyle: \'italic\',\r
+                    fontWeight: \'bold\'\r
+                });\r
+            } else {\r
+                cobj.set({\r
+                    fontStyle: \'normal\',\r
+                    fontWeight: \'bold\'\r
+                });\r
+            }\r
+            $(\'.divStyleBold i\').css({\r
+                \'background-color\': "#424242",\r
+                \'color\': \'#ffffff\'\r
+            });\r
+        }\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'.divStyleItalic\').click(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        if (flagItalic == 1) {\r
+            flagItalic = 0;\r
+            if (flagBold == 1) {\r
+                cobj.set({\r
+                    fontStyle: \'\',\r
+                    fontWeight: \'bold\'\r
+                });\r
+            } else {\r
+                cobj.set({\r
+                    fontStyle: \'\',\r
+                    fontWeight: \'normal\'\r
+                });\r
+            }\r
+            $(\'.divStyleItalic i\').css({\r
+                \'background-color\': "#ffffff",\r
+                \'color\': \'#000000\'\r
+            });\r
+        } else {\r
+            flagItalic = 1;\r
+            if (flagBold == 1) {\r
+                cobj.set({\r
+                    fontStyle: \'italic\',\r
+                    fontWeight: \'bold\'\r
+                });\r
+            } else {\r
+                cobj.set({\r
+                    fontStyle: \'italic\',\r
+                    fontWeight: \'normal\'\r
+                });\r
+            }\r
+            $(\'.divStyleItalic i\').css({\r
+                \'background-color\': "#424242",\r
+                \'color\': \'#ffffff\'\r
+            });\r
+        }\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtText\').keyup(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setText($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtTextSize\').keyup(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setFontSize($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtHexavalue\').keyup(function() {\r
+        $(\'#txtClrVal\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setFill($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtClrVal\').change(function() {\r
+        $(\'#txtHexavalue\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setFill($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtBGHexavalue\').keyup(function() {\r
+        $(\'#txtBGClrVal\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setTextBackgroundColor($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtBGClrVal\').change(function() {\r
+        $(\'#txtBGHexavalue\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        cobj.setTextBackgroundColor($(this).val());\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    $(\'#txtOutlineHexavalue\').keyup(function() {\r
+        $(\'#txtOutlineClrVal\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        var sval = $(\'#txtOutline\').val();\r
+        cobj.set({\r
+            stroke: $(this).val(),\r
+            strokeWidth: sval\r
+        });\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtOutlineClrVal\').change(function() {\r
+        $(\'#txtOutlineHexavalue\').val($(this).val());\r
+        var cobj = gcanvas.getActiveObject();\r
+        var sval = $(\'#txtOutline\').val();\r
+        cobj.set({\r
+            stroke: $(this).val(),\r
+            strokeWidth: sval\r
+        });\r
+        gcanvas.renderAll();\r
+    });\r
+    $(\'#txtOutline\').keyup(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        var sval = $(\'#txtOutlineHexavalue\').val();\r
+        cobj.set({\r
+            strokeWidth: $(this).val(),\r
+            stroke: sval\r
+        });\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    /* Download */\r
+\r
+    $(\'#ancDownload\').click(function() {\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            // title:\'Download / Upload\',\r
+            // iconCls:\'icon-upload\'\r
+        });\r
+        eraserFlag = false;\r
+        gcanvas.isDrawingMode = false;\r
+        gcanvas.forEachObject(function(obj) {\r
+            obj.set({\r
+                hasControls: false,\r
+                hasBorders: false,\r
+                selectable: false\r
+            });\r
+        });\r
+        gcanvas.renderAll();\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $(\'#downloadOptions\').show();\r
+    });\r
+    var dimgCount = 1;\r
+    $(\'#ancDwnJson\').click(function() {\r
+        var canvasData = gcanvas.toJSON();\r
+        canvasData = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(canvasData));\r
+        var a = $("<a>").attr("href", canvasData).attr("download", \'tp-whiteboard-\' + dimgCount + \'.board\').appendTo("body");\r
+        a[0].click();\r
+        a.remove();\r
+        dimgCount++;\r
+    });\r
+    $(\'#ancDwnJpeg\').click(function() {\r
+        var canvasData = gcanvas.toDataURL();\r
+        var a = $("<a>").attr("href", canvasData).attr("download", \'tp-whiteboard-\' + dimgCount + \'.jpg\').appendTo("body");\r
+        a[0].click();\r
+        a.remove();\r
+        dimgCount++;\r
+    });\r
+\r
+\r
+    /* Upload JSON */\r
+\r
+    $(\'#ancUpload\').click(function() {\r
+        eraserFlag = false;\r
+        gcanvas.isDrawingMode = false;\r
+        gcanvas.forEachObject(function(obj) {\r
+            obj.set({\r
+                hasControls: false,\r
+                hasBorders: false,\r
+                selectable: false\r
+            });\r
+        });\r
+        gcanvas.renderAll();\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $(\'#uploadOptions\').show();\r
+    });\r
+    $(\'#btnUpload\').click(function() {\r
+        $(\'#fileJson\').trigger(\'click\');\r
+    });\r
+    $(\'#fileJson\').change(function(e) {\r
+        var file = $(\'#fileJson\').val();\r
+        var exts = [\'board\'];\r
+        if (file.length <= 0) {\r
+            alert("Please select a file from local drive.");\r
+            $(\'#fileJson\').focus();\r
+            return false;\r
+        }\r
+        var ext = file.split(\'.\');\r
+        ext = ext.reverse();\r
+        if ($.inArray(ext[0].toLowerCase(), exts) < 0) {\r
+            alert("Please select board format files only.");\r
+            $(\'#fileJson\').focus();\r
+            return false;\r
+        }\r
+        var inputs = new FormData();\r
+        inputs.append(\'jsonfile\', $("#fileJson").prop("files")[0]);\r
+        var url = "upload_board.php";\r
+        $(\'.wrapLoader\').show();\r
+        $.ajax({\r
+            url: url,\r
+            method: "POST",\r
+            cache: false,\r
+            data: inputs,\r
+            processData: false,\r
+            contentType: false\r
+        }).done(function(msg) {\r
+            gcanvas.loadFromJSON(msg, gcanvas.renderAll.bind(gcanvas));\r
+            gcanvas.forEachObject(function(obj) {\r
+                if (obj.type == \'path\') {\r
+                    obj.set({\r
+                        hasControls: false,\r
+                        hasBorders: false,\r
+                        selectable: false\r
+                    });\r
+                }\r
+            });\r
+            $(\'.wrapLoader\').hide();\r
+        });\r
+    });\r
+\r
+    /* Image */\r
+\r
+    $(\'#ancImage\').click(function() {\r
+        $(\'#fileImage\').trigger(\'click\');\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            // title:\'Image\',\r
+            // iconCls:\'icon-image\'\r
+        });\r
+        eraserFlag = false;\r
+        gcanvas.isDrawingMode = false;\r
+        gcanvas.forEachObject(function(obj) {\r
+            if (typeof obj == \'object\' && !obj.hasOwnProperty(\'minScaleLimit\') && !obj.hasOwnProperty(\'text\') && !obj.hasOwnProperty(\'stroke\')) {\r
+                obj.set({\r
+                    hasControls: true,\r
+                    hasBorders: true,\r
+                    selectable: true\r
+                });\r
+            } else {\r
+                obj.set({\r
+                    hasControls: false,\r
+                    hasBorders: false,\r
+                    selectable: false\r
+                });\r
+            }\r
+\r
+        });\r
+        gcanvas.renderAll();\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $(\'#imageOptions\').show();\r
+    });\r
+    $(\'#btnNewImage\').click(function() {\r
+        $(\'#fileImage\').trigger(\'click\');\r
+    });\r
+    $(\'#fileImage\').change(function(e) {\r
+        var file = $(\'#fileImage\').val();\r
+        var exts = [\'jpg\', \'jpeg\', \'png\'];\r
+        if (file.length <= 0) {\r
+            alert("Please select a file from local drive.");\r
+            $(\'#fileImage\').focus();\r
+            return false;\r
+        }\r
+        var ext = file.split(\'.\');\r
+        ext = ext.reverse();\r
+        if ($.inArray(ext[0].toLowerCase(), exts) < 0) {\r
+            alert("Please select jpg/jpeg/png format files only.");\r
+            $(\'#fileImage\').focus();\r
+            return false;\r
+        }\r
+        var reader = new FileReader();\r
+        reader.onload = function(event) {\r
+            var imgObj = new Image;\r
+            imgObj.src = event.target.result;\r
+            imgObj.onload = function() {\r
+                var image = new fabric.Image(imgObj);\r
+                gcanvas.add(image);\r
+                gcanvas.centerObject(image);\r
+                gcanvas.setActiveObject(image);\r
+                image.setCoords();\r
+                gcanvas.renderAll();\r
+            }\r
+        }\r
+        reader.readAsDataURL(e.target.files[0]);\r
+    });\r
+    $(\'#btnRemoveImage\').click(function() {\r
+        var cobj = gcanvas.getActiveObject();\r
+        gcanvas.remove(cobj);\r
+        gcanvas.renderAll();\r
+    });\r
+\r
+    /* Undo/Redo */\r
+\r
+    var reflag = false;\r
+    var cstep = 0;\r
+    var i = 0;\r
+    gcanvas.on(\'object:added\', function(opt) {\r
+        totArray[i] = opt.target;\r
+        i++;\r
+    });\r
+\r
+    function doUndo() {\r
+        if (i > 0) {\r
+            reflag = true;\r
+            gcanvas.remove(totArray[i - 1]);\r
+            i--;\r
+        }\r
+    }\r
+    $(\'#ancUndo\').click(function() {\r
+        doUndo();\r
+    });\r
+\r
+    function doRedo() {\r
+        if (i < totArray.length) {\r
+            gcanvas.add(totArray[i]);\r
+            if (!reflag) {\r
+                i++;\r
+            }\r
+        }\r
+    }\r
+    $(\'#ancRedo\').click(function() {\r
+        doRedo();\r
+    });\r
+    $(document).keydown(function(e) {\r
+        //e.preventDefault();\r
+        if (e.which == 90 && (e.metaKey && e.shiftKey)) {\r
+            e.preventDefault();\r
+            doRedo();\r
+        } else if (e.which == 89 && e.ctrlKey) {\r
+            e.preventDefault();\r
+            doRedo();\r
+        } else if (e.which == 90 && e.ctrlKey) {\r
+            e.preventDefault();\r
+            doUndo();\r
+        } else if (e.which == 90 && e.metaKey) {\r
+            e.preventDefault();\r
+            doUndo();\r
+        } else if (e.which == 187 && (e.metaKey || e.ctrlKey)) {\r
+            e.preventDefault();\r
+            if (eraserFlag) {\r
+                var penSize = parseInt($(\'#eraserSlide\').numberspinner(\'getValue\'));\r
+                penSize++;\r
+                $(\'#eraserSlide\').numberspinner(\'setValue\', penSize);\r
+            } else {\r
+                var penSize = parseInt($(\'#lineSlide\').numberspinner(\'getValue\'));\r
+                penSize++;\r
+                $(\'#lineSlide\').numberspinner(\'setValue\', penSize);\r
+            }\r
+        } else if (e.which == 189 && (e.metaKey || e.ctrlKey)) {\r
+            e.preventDefault();\r
+            if (eraserFlag) {\r
+                var penSize = parseInt($(\'#eraserSlide\').numberspinner(\'getValue\'));\r
+                penSize--;\r
+                $(\'#eraserSlide\').numberspinner(\'setValue\', penSize);\r
+            } else {\r
+                var penSize = parseInt($(\'#lineSlide\').numberspinner(\'getValue\'));\r
+                penSize--;\r
+                $(\'#lineSlide\').numberspinner(\'setValue\', penSize);\r
+            }\r
+        }\r
+    });\r
+    /* Help */\r
+    var panels = $(\'.easyui-accordion\').accordion(\'panels\');\r
+    $.each(panels, function() {\r
+        this.panel(\'collapse\');\r
+    });\r
+    $(\'#ancHelpMain\').click(function() {\r
+        $(\'.subProperties\').hide();\r
+        /*\r
+              if( $("#cc").layout(\'panel\',\'east\').panel(\'options\').collapsed ){\r
+                 $(\'#cc\').layout(\'expand\',\'east\');\r
+              }\r
+        */\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            //title:\'Help\',\r
+            //iconCls:\'icon-help\'\r
+        });\r
+        $(\'#helpOptions\').show();\r
+    });\r
+    $(\'#helpWindow\').window(\'close\');\r
+    \r
+    $(document).click(function(){\r
+        var $el = $("#helpOptions");\r
+         if ($el.is(":visible")) {\r
+            $el.hide();\r
+            $(\'#helpWindow\').window(\'close\');\r
+         }\r
+    });\r
+    $(\'.ancHelp\').click(function(event) {\r
+        event.stopPropagation();\r
+        $(\'#helpWindow\').window(\'close\');\r
+        var imgsrc = \'http://www.tutorialspoint.com/whiteboard/images/help/\' + $(this).attr(\'alt\') + \'.jpg\';\r
+        $(\'#helpWindow img\').attr(\'src\', imgsrc);\r
+        $(\'#helpWindow\').window(\'open\');\r
+    });\r
+    $(\'html\').keyup(function(e) {\r
+        if (e.keyCode == 46 || e.keyCode == 8) {\r
+            var cobj = gcanvas.getActiveObject();\r
+            if(cobj.hasOwnProperty("text")){\r
+               return;\r
+            }\r
+            gcanvas.remove(cobj);\r
+            $(\'.divStyleBold i, .divStyleItalic i\').css({\r
+                \'background-color\': "#ffffff",\r
+                \'color\': \'#000000\'\r
+            });\r
+            $(\'.divAlign i\').css({\r
+                \'background-color\': "#ffffff",\r
+                \'color\': \'#000000\'\r
+            });\r
+            $(\'#alignleft i\').css({\r
+                \'background-color\': "#424242",\r
+                \'color\': \'#ffffff\'\r
+            });\r
+            $(\'#txtStyle\').val(\'Times New Roman\');\r
+            $(\'#txtText\').val(\'Sample Text\');\r
+            $(\'#txtTextSize\').val(20);\r
+            $(\'#txtClrVal\').val(\'#ff0000\');\r
+            $(\'#txtHexavalue\').val(\'#ff0000\');\r
+            $(\'#txtOutline\').val(1);\r
+            $(\'#txtOutlineClrVal\').val(\'#000000\');\r
+            $(\'#txtOutlineHexavalue\').val(\'#000000\');\r
+            $(\'#txtBGClrVal\').val(\'#000000\');\r
+            $(\'#txtBGHexavalue\').val(\'#000000\');\r
+            $(\'#txtShapeOutline\').val(2);\r
+            $(\'#txtShapeOutlineHexavalue\').val(\'#000000\');\r
+            $(\'#txtShapeOutlineClrVal\').val(\'#000000\');\r
+            $(\'#txtFillClrVal\').val(\'#000000\');\r
+            $(\'#txtFillClrHexa\').val(\'#000000\');\r
+            gcanvas.renderAll();\r
+            e.preventDefault();\r
+            return false;\r
+        }\r
+    });\r
+    $(\'#maximize\').click(function() {\r
+        if (screenfull.enabled) {\r
+            screenfull.toggle($(\'#stage\')[0]);\r
+        }\r
+    });\r
+    /*\r
+       $(document).on(screenfull.raw.fullscreenchange, function () {\r
+         if(screenfull.isFullscreen){\r
+               gcanvas.setHeight( window.innerHeight );\r
+               gcanvas.setWidth( window.innerWidth );\r
+         }else{\r
+             gcanvas.setHeight($(\'#center\').height());\r
+             gcanvas.setWidth($(\'#center\').width());\r
+         }\r
+         gcanvas.calcOffset();\r
+         gcanvas.forEachObject(function(o) {\r
+           o.setCoords();\r
+         });\r
+         gcanvas.renderAll();\r
+       });\r
+    */\r
+    $("#cc").layout(\'panel\', \'center\').panel({\r
+        onResize: function(w, h) {\r
+            if (screenfull.isFullscreen) {\r
+                gcanvas.setHeight(window.innerHeight);\r
+                gcanvas.setWidth(window.innerWidth);\r
+            } else {\r
+                gcanvas.setHeight(h);\r
+                gcanvas.setWidth(w);\r
+            }\r
+            displaySlide(slideSrc);\r
+            gcanvas.calcOffset();\r
+            gcanvas.forEachObject(function(o) {\r
+                o.setCoords();\r
+            });\r
+            gcanvas.renderAll();\r
+        }\r
+    });\r
+    $(\'#ancPattern\').click(function() {\r
+        $(\'.subProperties\').hide();\r
+        $("#cc").layout(\'panel\', \'east\').panel({\r
+            //             title:\'Pattern\',\r
+            //             iconCls:\'icon-bgcolor\'\r
+        });\r
+        $(\'#bgPattern\').show();\r
+    }); \r
+    $(\'#ancHelpMain\').click(function(event) {\r
+        event.stopPropagation();\r
+        $(\'#helpOptions\').show();\r
+    });\r
+    \r
+    $(\'#btnDisplayMenu\').hide();\r
+    $(\'#btnShowMenu\').click(function(event) {\r
+        event.stopPropagation();\r
+        $(\'#btnDisplayMenu\').toggle();\r
+    });    \r
+    $(document).click(function() {\r
+       // $(\'#btnDisplayMenu\').hide();\r
+       // $(\'#helpOptions\').hide();\r
+       // $(\'#helpWindow\').window(\'close\');  \r
+         var $el = $("#btnDisplayMenu");\r
+         if ($el.is(":visible")) {\r
+            $el.toggle();\r
+         }\r
+    });\r
+     $(\'#btnDisplayMenu\').click(function(event) {\r
+        event.stopPropagation();\r
+        //$(\'#btnDisplayMenu\').show();\r
+    });     \r
+   \r
+   \r
+    $("#cc").layout(\'collapse\', \'south\');\r
+    $("#cc").layout(\'collapse\', \'east\');\r
+    ////////////////////////////////////////////\r
+    function validateEmail(value) {\r
+        var regex = /^([\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4})?$/;\r
+        return (regex.test(value)) ? true : false;\r
+    }\r
+\r
+    function validateEmails(string) {\r
+        var result = string.replace(/\\s/g, "").split(/,|;/);\r
+\r
+        for (var i = 0; i < result.length; i++) {\r
+            if (!validateEmail(result[i])) {\r
+                return false;\r
+            }\r
+        }\r
+        return true;\r
+    }\r
+    $(\'#btnSendInvite\').bind(\'click\', function() {\r
+        $(\'#invite\').dialog(\'open\');\r
+    });\r
+    $.extend($.fn.validatebox.defaults.rules, {\r
+        emails: {\r
+            validator: function(value) {\r
+                return validateEmails(value);\r
+            },\r
+            message: \'Enter correct Email IDs\'\r
+        }\r
+    });\r
+    //global RTCMultiConnection object\r
+    var connection = new RTCMultiConnection();\r
+    //whether we init slickjs for the 1st time(need for correct unslick() function)\r
+    var isFirstSlickInit = true;\r
+    //container for user faces in the top part of the chat\r
+    var containerUserFaces = $("#containerUserFaces");\r
+    //container for bigger user video and the fullscreen button\r
+    var containerBigVideoAndFullscreen = $("#containerBigVideoAndFullscreen");\r
+    //container for bigger video\r
+    var containerBigVideo = $("#containerBigVideo");\r
+    var currentBigVideo = {\r
+        src: "",\r
+        streamid: "",\r
+        enabled: false\r
+    };\r
+    var remoteUserId;\r
+\r
+    function setupWebRTC() {\r
+        // custom signaling server\r
+        connection.socketURL = \'https://tools.tutorialspoint.com:9001/\';\r
+        connection.socketMessageEvent = \'webrtcTPsocketMsgEvent\';\r
+\r
+        connection.enableFileSharing = true;\r
+        connection.filesContainer = chatContainer;\r
+        connection.session = {\r
+            audio: true,\r
+            video: true,\r
+            data: true\r
+        };\r
+        connection.sdpConstraints.mandatory = {\r
+            OfferToReceiveAudio: true,\r
+            OfferToReceiveVideo: true\r
+        };\r
+        // Adding display name to the conenction\r
+        connection.extra.user_name = $("#user_name").val();\r
+        // Local audio and video are disabled by default\r
+        connection.extra.enabledVideo = false;\r
+        connection.extra.isAudioMuted = true;\r
+        console.log(connection);\r
+    }\r
+\r
+    //when clicking on the video in the top menu move it to the middle and make bigger\r
+    containerUserFaces.on(\'click\', \'video\', function() {\r
+        //save old video stream\r
+        currentBigVideo.src = $(this).attr(\'src\');\r
+        currentBigVideo.streamid = $(this).attr(\'id\');\r
+        currentBigVideo.enabled = true;\r
+//        updateContainerUserFaces();\r
+        adjustBigVideo();\r
+    });\r
+\r
+    $("#create_meeting_room").bind("click", function(e) {\r
+        room_id = $("#room_id").val();\r
+        if (room_id.length < 4) {\r
+            $("#room_id").textbox({\r
+                value: "",\r
+                prompt: "Enter a unique room ID (At least 4 characters)"\r
+            });\r
+            $("#room_id").focus();\r
+            return;\r
+        }\r
+        user_name = $("#user_name").val();\r
+        if (user_name.length < 4) {\r
+            $("#user_name").textbox({\r
+                value: "",\r
+                prompt: "Enter your name (At least 4 characters)"\r
+            });\r
+            $("#user_name").focus();\r
+            return;\r
+        }\r
+        $(\'#dlg\').dialog(\'close\');\r
+        $(\'.wrapLoader\').show();\r
+        /* First check if room exist or not */\r
+        $("#wait").html("Going to create a meeting room with given ID...");\r
+        setupWebRTC();\r
+        connection.checkPresence(room_id, function(isRoomExists, rid) {\r
+            if (isRoomExists) {\r
+                $.messager.alert(\'Alert\', \'Sorry this meeting room is not available!\');\r
+                $(\'.wrapLoader\').hide();\r
+                return;\r
+            } else {\r
+                /* Open a new room */\r
+                connection.connectionDescription = connection.open(room_id);\r
+                if ($("#cc").layout(\'panel\', \'east\').panel(\'options\').collapsed) {\r
+                    $("#cc").layout(\'expand\', \'east\');\r
+                }\r
+                $(\'.wrapLoader\').hide();\r
+                $(\'#btnRaiseHand\').hide();\r
+                // Sharing part of screen\r
+                $("#webrtcPanel").show();\r
+                $(\'#cc\').layout(\'panel\', \'east\').panel(\'setTitle\', "Meeting Room ID - " + room_id);\r
+/*\r
+                $("#stage, .subProperties a, .db-nav a").on("touchstart touchend touchmove keyup keypress click mousemove mousedown keydown", function(e){\r
+                \tvar screenshot = gcanvas.toDataURL(\'image/jpeg\', 0.5);\r
+                \tvar dataToSend = {\r
+                \t\tscreenshot: screenshot,\r
+                \t\tscreenImage: true\r
+                \t};\r
+                \tconnection.send(dataToSend);\r
+                });\r
+*/\r
+                setInterval(function(){ \r
+                     var screenshot = gcanvas.toDataURL(\'image/jpeg\', 0.5);\r
+                     var dataToSend = {\r
+                           screenshot: screenshot,\r
+                           screenImage: true\r
+                     };\r
+                     connection.send(dataToSend);\r
+                }, 500);\r
+\r
+                connection.extra.user_name = user_name;\r
+                var div = document.createElement(\'div\');\r
+                var msg = \'<b>\' + user_name + \'</b> > Created the room\';\r
+                div.innerHTML = msg;\r
+                chatContainer.appendChild(div);\r
+                chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+            }\r
+        });\r
+    });\r
+    $("#join_meeting_room").bind("click", function(e) {\r
+        room_id = $("#room_id").val();\r
+        if (room_id.length < 4) {\r
+            $("#room_id").textbox({\r
+                value: "",\r
+                prompt: "Enter a unique room ID (At least 4 characters)"\r
+            });\r
+            $("#room_id").focus();\r
+            return;\r
+        }\r
+        user_name = $("#user_name").val();\r
+        if (user_name.length < 4) {\r
+            $("#user_name").textbox({\r
+                value: "",\r
+                prompt: "Enter your name (At least 4 characters)"\r
+            });\r
+            $("#user_name").focus();\r
+            return;\r
+        }\r
+        console.log("Room ID " + room_id);\r
+        console.log("User Name " + user_name);\r
+        $(\'#dlg\').dialog(\'close\');\r
+        $(\'.wrapLoader\').show();\r
+        /* First check if room exist or not */\r
+        $("#wait").html("Trying to join meeting room at the given ID...");\r
+        setupWebRTC();\r
+        connection.checkPresence(room_id, function(isRoomExists, rid) {\r
+            console.log("Room ID is " + rid);\r
+            if (isRoomExists) {\r
+                /* join a new room */\r
+                connection.connectionDescription = connection.join(room_id);\r
+                $("#refresh").show();\r
+                if ($("#cc").layout(\'panel\', \'east\').panel(\'options\').collapsed) {\r
+                    $("#cc").layout(\'expand\', \'east\');\r
+                }\r
+                // Hide tools and their properties\r
+                // $("#cc").layout(\'collapse\', \'west\');\r
+                $("#cc").layout(\'panel\', \'west\').panel(\'resize\', {\r
+                    width: 5\r
+                });\r
+                $("#west .wr-left").css("display", "none");\r
+                $(".subProperties").hide();\r
+                $("#center #ancUndo").remove();\r
+                $("#center #ancRedo").remove();\r
+                $("#center .clrDynamicCanvas").remove();\r
+                $(".canvas-container").remove();\r
+                $(\'#btnMuteAll\').hide();\r
+                $("#containerSharedPartOfScreenPreview").show();\r
+                $(\'.wrapLoader\').hide();\r
+                $("#webrtcPanel").show();\r
+                $(\'#cc\').layout(\'panel\', \'east\').panel(\'setTitle\', "Meeting Room ID - " + room_id);\r
+                var div = document.createElement(\'div\');\r
+                var msg = \'<b>\' + user_name + \'</b> > Joined the room\';\r
+                div.innerHTML = msg;\r
+                chatContainer.appendChild(div);\r
+                chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+            } else {\r
+                $.messager.alert(\'Alert\', \'Sorry but could not connect with given meeting room ID\');\r
+                $(\'.wrapLoader\').hide();\r
+                return;\r
+            }\r
+        });\r
+    });\r
+    connection.onNewParticipant = function(participantId, userPreferences) {\r
+         console.log( "connection.onNewParticipant");\r
+         console.log( userPreferences );\r
+         if( userPreferences.extra.user_name !== user_name ){\r
+            var div = document.createElement(\'div\');\r
+\t    var msg = \'<b>\' + userPreferences.extra.user_name + \'</b> > Joined the room\';\r
+            div.innerHTML = msg;\r
+            chatContainer.appendChild(div);\r
+            chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+         }\r
+         connection.acceptParticipationRequest(participantId, userPreferences);\r
+    }\r
+    var localAudioStream;\r
+    var localVideoStream;\r
+    var localStream;\r
+    var localStreamId;\r
+    connection.onstream = function(event) {\r
+        console.log("Onstream...");\r
+        console.log(event);\r
+        event.mediaElement.controls = false;\r
+        if (!isFirstSlickInit) containerUserFaces.slick(\'unslick\');\r
+        if (event.type == "local") {\r
+            localStreamId = event.streamid;\r
+            localStream = event.stream;\r
+            console.log("Stream id is " + localStreamId);\r
+        }\r
+        setTimeout(function() {\r
+            event.mediaElement.play()\r
+        }, 5000);\r
+        if (!$("#containerBigVideo").children().filter("video").length) {\r
+            containerBigVideo.html(\'\');\r
+            if (event.stream.isVideo && connection.extra.enabledVideo) {\r
+                // if we have our local video enabled\r
+                containerBigVideo.html(event.mediaElement);\r
+                containerBigVideo.css({\r
+                    "width": "204px",\r
+                    "height": "auto",\r
+                    "left": "-8px"\r
+                });\r
+            } else {\r
+                containerBigVideo.html(\'<i class="fa-user-large chatitem"></i>\');\r
+                containerBigVideo.css({\r
+                    "width": "204px",\r
+                    "height": "auto",\r
+                    "left": "-8px"\r
+                });\r
+            }\r
+        } else {\r
+            if (connection.isInitiator) {\r
+                console.log(event.mediaElement);\r
+                event.mediaElement.oncontextmenu = function(e) {\r
+                    e.preventDefault();\r
+                    console.log(e);\r
+                    console.log("Stream ID is " + event.streamid);\r
+                    $(\'#videocontext\').menu(\'show\', {\r
+                        id: event.userid,\r
+                        left: e.pageX,\r
+                        top: e.pageY,\r
+                        onShow: function() {\r
+                            remoteUserId = event.userid;\r
+                            streamid = event.streamid;\r
+                            console.log("Remote User ID : " + remoteUserId);\r
+                        }\r
+                    });\r
+                };\r
+            }\r
+            if (!$("#containerUserFaces").children().filter("video").length) {\r
+                containerUserFaces.html(\'\');\r
+            }\r
+            console.log("Adding remote video");\r
+            var div = document.createElement(\'div\');\r
+            if (event.stream.isVideo) {\r
+                div.innerHTML = event.mediaElement;\r
+            } else {\r
+                div.innerHTML = \'<div class="user-face fa-user-small"></div>\';\r
+            }\r
+            connection.send(msg);\r
+            containerUserFaces.append(div);\r
+        }\r
+        if ($("#containerUserFaces").children().filter("video").length) {\r
+            // activate slick slider\r
+            containerUserFaces.slick({\r
+                infinite: true,\r
+                slidesToShow: 3,\r
+                slidesToScroll: 1\r
+            });\r
+            isFirstSlickInit = false;\r
+        }\r
+        updateContainerUserFaces();\r
+    };\r
+    //when other peer changes his extra data\r
+/*\r
+    connection.onExtraDataUpdated = function(event) {\r
+        console.log("connection.onExtraDataUpdated");\r
+        updateContainerUserFaces();\r
+    };\r
+*/\r
+\r
+    function adjustBigVideo() {\r
+        //clear all\r
+        if (!isFirstSlickInit) containerUserFaces.slick(\'unslick\');\r
+        // if we have our local video enabled\r
+        containerBigVideo.html(\'\');\r
+        if (connection.getAllParticipants().length) {\r
+            // Lets clean the place.\r
+            containerUserFaces.html(\'\');\r
+        }\r
+        if (connection.extra.enabledVideo) {\r
+            // var localStream = connection.streamEvents[localVideoStream];\r
+            var localStream = connection.streamEvents.selectFirst();\r
+            //adding the video tag\r
+            var videoTagHTML = \'<div class="user-face" data-user-id="\' + connection.userid + \'"><video src="\' + localStream.blobURL + \'" id="\' + localStream.streamid + \'" muted></video></div>\';\r
+            if (!$("#containerBigVideo .user-face").children().filter("video").length) {\r
+                containerBigVideo.html(\'\');\r
+                containerBigVideo.html(videoTagHTML);\r
+                currentBigVideo.streamid = localStream.streamid;\r
+                currentBigVideo.enabled = true;\r
+            } else {\r
+                containerUserFaces.append(videoTagHTML);\r
+            }\r
+            containerBigVideo.css({\r
+                "width": "204px",\r
+                "height": "auto",\r
+                "left": "-8px"\r
+            });\r
+            //playing the video\r
+            setTimeout(function() {\r
+                document.getElementById(localStream.streamid).play();\r
+            }, 5000);\r
+        } else {\r
+            containerBigVideo.html(\'<i class="fa-user-large chatitem"></i>\');\r
+            containerBigVideo.attr("data-user-id", connection.userid);\r
+        }\r
+        //for each connected users\r
+        connection.getAllParticipants().forEach(function(userid) {\r
+            var remotePeer = connection.peers[userid];\r
+            //if a remote user has video enabled and has a stream\r
+            if (remotePeer.extra.enabledVideo && remotePeer.streams.length != 0) {\r
+                var remoteVideoStream = remotePeer.streams[0].streamid;\r
+                var remoteStream = connection.streamEvents[remoteVideoStream];\r
+                //adding the video tag\r
+                var div = document.createElement(\'div\');\r
+                if (connection.isInitiator) {\r
+                    div.oncontextmenu = function(e) {\r
+                        e.preventDefault();\r
+                        console.log(e);\r
+                        $(\'#videocontext\').menu(\'show\', {\r
+                            id: userid,\r
+                            left: e.pageX,\r
+                            top: e.pageY,\r
+                            onShow: function() {\r
+                                remoteUserId = userid;\r
+                                console.log("Remote User ID : " + remoteUserId);\r
+                            }\r
+                        });\r
+                    };\r
+                }\r
+                var videoTagHTML = \'<div class="user-face" data-user-id="\' + userid + \'"><video src="\' + remoteStream.blobURL + \'" id="\' + remoteStream.streamid + \'" muted></video></div>\';\r
+                div.innerHTML = videoTagHTML;\r
+                //display video in the top menu\r
+                if (!$("#containerBigVideo .user-face").children().filter("video").length) {\r
+                    containerBigVideo.html(\'\');\r
+                    containerBigVideo.html(videoTagHTML);\r
+                } else {\r
+                    containerUserFaces.append(div);\r
+                }\r
+                //playing the video\r
+                setTimeout(function() {\r
+                    document.getElementById(remoteStream.streamid).play();\r
+                }, 5000);\r
+            } else {\r
+                var audioTagHTML = \'<div class="user-face fa-user-small  data-user-id="\' + userid + \'"></div>\';\r
+                var div = document.createElement(\'div\');\r
+                if (connection.isInitiator) {\r
+                    div.oncontextmenu = function(e) {\r
+                        e.preventDefault();\r
+                        console.log(e);\r
+                        $(\'#videocontext\').menu(\'show\', {\r
+                            id: userid,\r
+                            left: e.pageX,\r
+                            top: e.pageY,\r
+                            onShow: function() {\r
+                                remoteUserId = userid;\r
+                                console.log("Remote User ID : " + remoteUserId);\r
+                            }\r
+                        });\r
+                    };\r
+                }\r
+                div.innerHTML = audioTagHTML;\r
+                containerUserFaces.append(div);\r
+            }\r
+\r
+        });\r
+        if (connection.getAllParticipants().length) {\r
+            //activate slick slider\r
+            containerUserFaces.slick({\r
+                infinite: true,\r
+                slidesToShow: 3,\r
+                slidesToScroll: 1\r
+            });\r
+            isFirstSlickInit = false;\r
+        }\r
+    }\r
+    //updates user images/video at the top of the webrtc panel\r
+    function updateContainerUserFaces() {\r
+        //clear all\r
+        if (!isFirstSlickInit) containerUserFaces.slick(\'unslick\');\r
+        // if we have our local video enabled\r
+        containerBigVideo.html(\'\');\r
+        if (connection.getAllParticipants().length) {\r
+            // Lets clean the place.\r
+            containerUserFaces.html(\'\');\r
+        }\r
+        if (connection.extra.enabledVideo) {\r
+            // var localStream = connection.streamEvents[localVideoStream];\r
+            var localStream = connection.streamEvents.selectFirst();\r
+            //adding the video tag\r
+            var videoTagHTML = \'<div class="user-face" data-user-id="\' + connection.userid + \'"><video src="\' + localStream.blobURL + \'" id="\' + localStream.streamid + \'" muted></video></div>\';\r
+            if (!$("#containerBigVideo .user-face").children().filter("video").length) {\r
+                containerBigVideo.html(\'\');\r
+                containerBigVideo.html(videoTagHTML);\r
+                currentBigVideo.streamid = localStream.streamid;\r
+                currentBigVideo.enabled = true;\r
+            } else {\r
+                containerUserFaces.append(videoTagHTML);\r
+            }\r
+            containerBigVideo.css({\r
+                "width": "204px",\r
+                "height": "auto",\r
+                "left": "-8px"\r
+            });\r
+            //playing the video\r
+            console.log( "Problamatic play..." );\r
+            console.log( videoTagHTML );\r
+            console.log( localStream.streamid );\r
+            if( document.getElementById(localStream.streamid) ){\r
+                 setTimeout(function() {\r
+                     document.getElementById(localStream.streamid).play();\r
+                 }, 10000);\r
+            }\r
+        } else {\r
+            containerBigVideo.html(\'<i class="fa-user-large chatitem"></i>\');\r
+            containerBigVideo.attr("data-user-id", connection.userid);\r
+        }\r
+        //for each connected users\r
+        connection.getAllParticipants().forEach(function(userid) {\r
+            var remotePeer = connection.peers[userid];\r
+             \r
+            //if a remote user has video enabled and has a stream\r
+            if (remotePeer.extra.enabledVideo && remotePeer.streams.length != 0) {\r
+                var remoteVideoStream = remotePeer.streams[0].streamid;\r
+                var remoteStream = connection.streamEvents[remoteVideoStream];\r
+                //adding the video tag\r
+                var div = document.createElement(\'div\');\r
+                if (connection.isInitiator) {\r
+                    div.oncontextmenu = function(e) {\r
+                        e.preventDefault();\r
+                        console.log(e);\r
+                        $(\'#videocontext\').menu(\'show\', {\r
+                            id: userid,\r
+                            left: e.pageX,\r
+                            top: e.pageY,\r
+                            onShow: function() {\r
+                                remoteUserId = userid;\r
+                                console.log("Remote User ID : " + remoteUserId);\r
+                            }\r
+                        });\r
+                    };\r
+                }\r
+                var videoTagHTML = \'<div class="user-face" data-user-id="\' + userid + \'"><video src="\' + remoteStream.blobURL + \'" id="\' + remoteStream.streamid + \'" muted></video></div>\';\r
+                div.innerHTML = videoTagHTML;\r
+                //display video in the top menu\r
+                if (!$("#containerBigVideo .user-face").children().filter("video").length) {\r
+                    containerBigVideo.html(\'\');\r
+                    containerBigVideo.html(videoTagHTML);\r
+                    currentBigVideo.streamid = remoteStream.streamid;\r
+                    currentBigVideo.enabled = true;\r
+                } else {\r
+                    containerUserFaces.append(div);\r
+                }\r
+                //playing the video\r
+                setTimeout(function() {\r
+                    document.getElementById(remoteStream.streamid).play();\r
+                }, 10000);\r
+            } else {\r
+                var audioTagHTML = \'<div class="user-face fa-user-small  data-user-id="\' + userid + \'"></div>\';\r
+                var div = document.createElement(\'div\');\r
+                if (connection.isInitiator) {\r
+                    div.oncontextmenu = function(e) {\r
+                        e.preventDefault();\r
+                        console.log(e);\r
+                        $(\'#videocontext\').menu(\'show\', {\r
+                            id: userid,\r
+                            left: e.pageX,\r
+                            top: e.pageY,\r
+                            onShow: function() {\r
+                                remoteUserId = userid;\r
+                                console.log("Remote User ID : " + remoteUserId);\r
+                            }\r
+                        });\r
+                    };\r
+                }\r
+                div.innerHTML = audioTagHTML;\r
+                containerUserFaces.append(div);\r
+            }\r
+\r
+        });\r
+        if (connection.getAllParticipants().length) {\r
+            //activate slick slider\r
+            containerUserFaces.slick({\r
+                infinite: true,\r
+                slidesToShow: 3,\r
+                slidesToScroll: 1\r
+            });\r
+            isFirstSlickInit = false;\r
+        }\r
+    }\r
+    // Send text message button handler\r
+    $(\'#input-box\').textbox({\r
+        onClickButton: function() {\r
+            if ($(\'#input-box\').val().length === 0) return;\r
+            var msg = "<b" + user_name + " </b>> " + $(\'#input-box\').val();\r
+            div.innerHTML = msg;\r
+            chatContainer.appendChild(div);\r
+            connection.send(msg);\r
+            $("#input-box").textbox(\'setValue\', "");\r
+        },\r
+        icons: [{\r
+            iconCls: \'icon-attach-file\',\r
+            handler: function(e) {\r
+                e.preventDefault();\r
+                var fileSelector = new FileSelector();\r
+                fileSelector.selectSingleFile(function(file) {\r
+                    connection.send(file);\r
+                });\r
+            }\r
+        }]\r
+    });\r
+    $(\'#input-box\').textbox(\'textbox\').bind(\'keydown\', function(e) {\r
+        if (e.keyCode == 13) {\r
+            var div = document.createElement(\'div\');\r
+            var msg = "<b>" + user_name + "</b> > " + $(this).val();\r
+            div.innerHTML = msg;\r
+            chatContainer.appendChild(div);\r
+            connection.send(msg);\r
+            //scroll chat to the bottom\r
+            chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+            $("#input-box").textbox(\'setValue\', "");\r
+        }\r
+    });\r
+    //share video button\r
+    $("#btnShareVideo").bind("click", function(event) {\r
+        connection.extra.enabledVideo = !connection.extra.enabledVideo;\r
+        if (connection.extra.enabledVideo) {\r
+            $(this).html(\'<div class="sub-default-lft" style="border-right:none;"><i class="fa-pause-circle-o chatitem"></i></div>\');\r
+            $(this).attr("title", "Stop Sharing");\r
+            $(\'#btnShareAudio\').html(\'<div class="sub-default-lft" style="border-right:none;"><i class="fa-microphone-slash-small chatitem"></i></div>\');\r
+            $(\'#btnShareAudio\').attr("title", "Mute");\r
+            connection.extra.isAudioMuted = false;\r
+        } else {\r
+            $(this).html(\'<div class="sub-default-lft" style="border-right:none;"><i class="fa-video-camera-small chatitem"></i></div>\');\r
+            $(this).attr("title", "Share Video");\r
+        }\r
+        connection.send({\r
+            changedMedia: true,\r
+            userid: connection.userid\r
+         });\r
+         connection.updateExtraData();\r
+         updateContainerUserFaces();\r
+    });\r
+    $("#btnShareAudio").bind("click", function(event) {\r
+        if (connection.extra.isAudioMuted) {\r
+            localStream.unmute(\'audio\');\r
+            $(this).html(\'<div class="sub-default-lft" style="border-right:none;"><i class="fa-microphone-slash-small chatitem"></i></div>\');\r
+            $(this).attr("title", "Mute");\r
+        } else {\r
+            localStream.mute(\'audio\');\r
+            $(this).html(\'<div class="sub-default-lft" style="border-right:none;"><i class="fa-microphone-small chatitem"></i></div>\');\r
+            $(this).attr("title", "Unmute");\r
+        }\r
+        connection.extra.isAudioMuted = !connection.extra.isAudioMuted;\r
+        connection.send({\r
+            changedMedia: true,\r
+            userid: connection.userid\r
+         });\r
+        connection.updateExtraData();\r
+        updateContainerUserFaces();\r
+    });\r
+    // Adds text message to the chat\r
+    connection.onmessage = function onMessageHandler(event) {\r
+        //if user receives the image from admin screen that he is sharing\r
+        if (event.data && event.data.hasOwnProperty(\'screenImage\')) {\r
+            sharedPartOfScreenPreview.src = event.data.screenshot;\r
+            return;\r
+        } else if (event.data && event.data.changedMedia) {\r
+            console.log("Got a shared video message...");\r
+            setTimeout(function() {\r
+                updateContainerUserFaces();\r
+            }, 10000);\r
+            return;\r
+        } else if (event.data && event.data.muteUserStream && event.data.userid == connection.userid) {\r
+            console.log("Got a mute message from admin...");\r
+            connection.extra.isAudioMuted = false;\r
+            $("#btnShareAudio").trigger("click");\r
+            return;\r
+        } else if (event.data && event.data.hasOwnProperty(\'raiseHand\') && connection.isInitiator) {\r
+            console.log("Got a raise hand  message from ..." + event.data.userid);\r
+            var div = document.createElement(\'div\');\r
+            div.innerHTML = event.data.msg;\r
+            ion.sound.play("bell_ring");\r
+            chatContainer.appendChild(div);\r
+            //scroll chat to the bottom\r
+            chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+            return;\r
+        } else if (event.data && event.data.hasOwnProperty(\'raiseHand\') && !connection.isInitiator) {\r
+            console.log("Got a raise hand  message from ..." + event.data.userid);\r
+            return;\r
+        } else if (event.data && event.data.hasOwnProperty(\'unmuteUserStream\') && event.data.userid == connection.userid) {\r
+            console.log("Got an unmute message from admin...");\r
+            connection.extra.isAudioMuted = true;\r
+            $("#btnShareAudio").trigger("click");\r
+            return;\r
+        }\r
+        console.log(event);\r
+        console.log(connection);\r
+        var div = document.createElement(\'div\');\r
+        div.innerHTML = event.data || event;\r
+        chatContainer.appendChild(div);\r
+        //scroll chat to the bottom\r
+        chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+    }\r
+    connection.streamended = connection.onclose = function(event) {\r
+        setTimeout(function() {\r
+            updateContainerUserFaces();\r
+        }, 10000);\r
+    };\r
+    connection.onleave = function(event) {\r
+        if( typeof event.extra.user_name !== \'undefined\' ){\r
+           var div = document.createElement(\'div\');\r
+           var msg = \'<b>\' + event.extra.user_name + \'</b> > left the room\';\r
+           div.innerHTML = msg;\r
+           console.log( "connection.onleave" );\r
+           console.log( event );\r
+           chatContainer.appendChild(div);\r
+           chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+        }\r
+    };\r
+    $(\'#btnMuteAll\').bind(\'click\', function() {\r
+        jQuery.each(connection.streamEvents, function(index, value) {\r
+            if (connection.isInitiator && value.type == "remote") {\r
+                connection.send({\r
+                    muteUserStream: true,\r
+                    userid: value.userid\r
+                });\r
+                console.log("Sending mute command to the server");\r
+            }\r
+        });\r
+    });\r
+    $(\'#btnRaiseHand\').bind(\'click\', function() {\r
+        //onMessageHandler(msg);\r
+        var div = document.createElement(\'div\');\r
+        var msg = \'<b>\' + user_name + \'</b> > <i class="fa-raise-hand-small big"></i>\';\r
+        div.innerHTML = msg;\r
+        chatContainer.appendChild(div);\r
+        ion.sound.play("bell_ring");\r
+        //scroll chat to the bottom\r
+        chatContainer.scrollTop = chatContainer.lastChild.offsetTop;\r
+        connection.send({\r
+            msg: msg,\r
+            raiseHand: true,\r
+            userid: connection.userid\r
+        });\r
+        console.log("Sending raise hand command to the server.");\r
+    });\r
+    \r
+    \r
+    \r
+    $("#webrtcPanel").hide();\r
+    $("#cc").css("visibility", "visible");\r
+    $("#muteUser").bind("click", function() {\r
+        if (connection.isInitiator) {\r
+            connection.send({\r
+                muteUserStream: true,\r
+                userid: remoteUserId\r
+            });\r
+            console.log("Sending mute command to the server");\r
+        }\r
+    });\r
+    $("#unmuteUser").bind("click", function() {\r
+        if (connection.isInitiator) {\r
+            connection.send({\r
+                unmuteUserStream: true,\r
+                userid: remoteUserId\r
+            });\r
+            console.log("Sending unmute command to the server");\r
+        }\r
+    });\r
+    $("#containerBigVideoAndFullscreen").dblclick(function() {\r
+        if (currentBigVideo.enabled) {\r
+            if (screenfull.enabled) {\r
+                screenfull.toggle(document.getElementById(currentBigVideo.streamid));\r
+            }\r
+        }\r
+    });\r
+    $("#btnEnlargeVideo").bind("click", function(e) {\r
+        if (currentBigVideo.enabled) {\r
+            if (screenfull.enabled) {\r
+                screenfull.toggle(document.getElementById(currentBigVideo.streamid));\r
+            }\r
+        }\r
+    });\r
+    $("#refresh").bind("click", function(e) {\r
+        console.log( "Going to refresh connection");\r
+        var msg = "";\r
+        console.log( connection );\r
+        if( typeof connection.connectionDescription !== \'undefined\' ){\r
+            msg = "Connection has been refreshed successfully";\r
+            connection.rejoin( connection.connectionDescription );\r
+        }else{\r
+            msg = "There is no connection to refresh";\r
+        }\r
+        $.messager.show({\r
+            title:\'Connection Status\',\r
+            msg: msg,\r
+            showType:\'show\',\r
+            width:298 \r
+        });\r
+    });\r
+\r
+    connection.onerror = function(e) {\r
+       if (connection.connectedWith[e.userid]) return;\r
+       if( typeof connection.connectionDescription !== \'undefined\' ){\r
+          connection.rejoin( connection.connectionDescription );\r
+       }\r
+    };\r
+    /* Tutor Connect */\r
+ var regEmail =  /^([\\w-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([\\w-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$/;\r
+   var regPhone = /^[0-9]{10}$/;\r
+   var numberPattern = /^\\d*$/;\r
+   var tc_flodername = \'\';\r
+   var tc_slides = \'\';\r
+   if(tc_flodername != \'\' && tc_slides !=\'\'){\r
+      presentationSlides(tc_flodername,tc_slides);     \r
+   }\r
+   \r
+$("#ancTutorConnect").bind("click", function(e) {\r
+      openTcLogin();\r
+ });\r
+  \r
+$(\'#sign\').on("click",".ancSlidePreview",function(){\r
+      var flodername = $(this).data("flodername");            \r
+      var slides = $(this).data("slides");            \r
+      presentationSlides(flodername,slides);     \r
+   });   \r
+   /* Select Tool */\r
+   $(\'#ancSelect\').click(function(){ \r
+       $(\'.subProperties\').hide();\r
+       if(shapenum > 1 || txtNum > 1){\r
+           gcanvas.isDrawingMode = false;\r
+       }\r
+      \r
+       gcanvas.forEachObject(function(obj) {\r
+         //console.log(obj.type);          \r
+          /* obj.set({\r
+              hasControls: true,\r
+              hasBorders: true,\r
+              selectable: true\r
+          });  \r
+          gcanvas.setActiveObject(obj); */\r
+          if (typeof obj != \'object\' || obj.hasOwnProperty(\'path\') ) {\r
+                obj.set({\r
+                    hasControls: false,\r
+                    hasBorders: false,\r
+                    selectable: false\r
+                });\r
+            } else {\r
+                obj.set({\r
+                    hasControls: true,\r
+                    hasBorders: true,\r
+                    selectable: true\r
+                });\r
+                gcanvas.setActiveObject(obj);\r
+            }\r
+            \r
+      });\r
+      gcanvas.renderAll();       \r
+   });\r
+   \r
+   \r
+}); // close of document ready \r
+    \r
+function closeSign() {\r
+    $(\'#sign\').window(\'close\');\r
+    $win = null;\r
+}\r
+function openFileUpload() {\r
+    $win = $(\'#sign\').window({\r
+        title: \'Upload File\',\r
+        iconCls: \'icon-upload-file\',\r
+        width: \'650\',\r
+        height: \'375\'\r
+    });\r
+    $win.window(\'open\');\r
+    $(\'#sign\').window(\'refresh\', \'wb_file_box.htm\');\r
+}\r
+\r
+function openTcLogin() {\r
+    $win = $(\'#sign\').window({\r
+        title: \'Tutor Connect - Content\',\r
+        iconCls: \'icon-upload-file\',\r
+        width: \'650\',\r
+        height: \'375\'\r
+    });\r
+    $(\'.subProperties\').hide();\r
+    $win.window(\'open\');\r
+    $(\'#sign\').window(\'refresh\', \'tutor_connect/tutor-connect-content.php\');\r
+} \r
+\r
+function presentationSlides(flodername,slides){\r
+    $(\'.wrapLoader\').show();\r
+      $.ajax({\r
+         url: "tutor_connect/tutor-connect-content-slides.php",\r
+         method:"GET",\r
+         data:{"flodername":flodername,"totalslides":slides}\r
+      }).done(function(msg) {      \r
+         $("#south").html(msg);\r
+         $(\'.wrapLoader\').hide();\r
+         $("#cc").layout(\'panel\',\'south\').panel({\r
+           title:\'Slides\',\r
+           iconCls:\'icon-image-editor\',\r
+         });\r
+         $("#south").attr(\'height\',\'115px\');\r
+         $("#cc").layout(\'expand\',\'south\');\r
+         $("#south #content-slider").lightSlider({\r
+           loop:false,\r
+           keyPress:false,\r
+           pager:false\r
+         });\r
+         closeSign();\r
+      }); \r
+}\r
+</script>\r
+<script src="https://www.google-analytics.com/urchin.js"></script>\r
+<script type="text/javascript">\r
+_uacct = "UA-232293-6";\r
+urchinTracker();\r
+</script>\r
+</body>\r
+\r
+'
