@@ -8,18 +8,24 @@ import time
 
 
 def crawling(url):
+    global crawl_id
     
     html_page = requests.get(url)
-    print("---[" + str(html_page.status_code)+"]------")
-
-    if True:
+    
+    print( "Crawl id : {:04d} ".format(crawl_id) + " Url : " + url + " Status Code : " + str(html_page.status_code), end =" ")
+    if True:                                             # html_page.headers['Content-Type'] == 'text/html':
         
         bs = BeautifulSoup(html_page.text,'html.parser')
     
         if url not in downloaded_links:
-            f = open(html_file_name(url), "w", encoding="utf-8")
+            
+            f_name = html_file_name(url)
+            f = open(f_name, "w", encoding="utf-8")
             f.write(str(bs))
             f.close()
+
+            print("Downloaded path : " + f_name+"\n")
+
             downloaded_links.append(url)
         
         links = bs.find_all('a')
@@ -41,6 +47,8 @@ def crawling(url):
                 pass
 
         links_file.close()
+        
+        crawl_id+=1
 
 
     # read_links = open(filename+'.txt','r')
@@ -61,18 +69,19 @@ def crawl_starter(depth,link_itr):
     if depth==0:
         print("exit")
     else:
-        print(master_links[link_itr])
+        # print(master_links[link_itr])
         crawling(master_links[link_itr])
         crawl_starter(depth-1,link_itr+1)
         
 
-
+#------------------------------------------------------------------------------------------------------------------------------------------------#
 start = time.time()
 
+crawl_id = 1
 master_links = []
 downloaded_links = []
 
-base_url = url = "https://www.tutorialspoint.com/index.htm"
+base_url = url = "https://www.tcs.com/"
 depth = 5
 master_links.append(url)
 
