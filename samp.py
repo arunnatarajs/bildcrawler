@@ -1,13 +1,10 @@
-import requests
-import re
-from urllib.parse import urljoin, urlparse
-from urllib.request import urlopen
 from bs4 import BeautifulSoup
-
-html = urlopen("http://www.skcet.ac.in/")
-soup = BeautifulSoup(html.read(), 'lxml')
-links = []
-for link in soup.find_all('a'):
-    links.append(link.get('href'))
-
-print(links[:])
+from urllib.request import urlopen
+from urllib.parse import urljoin, urlparse
+#----------------------------------------------------------------------------
+URL = "https://www.tutorialspoint.com/index.htm"
+#----------------------------------------------------------------------------
+soup = BeautifulSoup(urlopen(URL).read(), "html.parser")
+f = open("samp.html", "w", encoding="utf-8")
+f.write(str(soup.html))
+f.close()

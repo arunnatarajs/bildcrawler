@@ -1,90 +1,92 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
+from filename_generator import basefile, html_file_name
 from htmldownloader import htmldownloader
 import os
-import re
 import time
-# import lxml
+
 
 def crawling(url):
-    # base_url = 'https://www.tutorialspoint.com/'
-    # visited_links.append(base_url)
+    
+    html_page = requests.get(url)
+    print("---[" + str(html_page.status_code)+"]------")
 
-    # htmlpages = urlparse(url).netloc.replace('.','_')
-    # if not os.path.isdir(os.getcwd() + '/' + htmlpages):
-    #     os.mkdir(os.getcwd() + '/' + htmlpages)
+    if True:
+        
+        bs = BeautifulSoup(html_page.text,'html.parser')
+    
+        if url not in downloaded_links:
+            f = open(html_file_name(url), "w", encoding="utf-8")
+            f.write(str(bs))
+            f.close()
+            downloaded_links.append(url)
+        
+        links = bs.find_all('a')
+        # print(bs.prettify())
 
-    # filename = url[ url.find('.') + 1 : url.rfind('.') ]
-    # filename = filename.replace('.','_').replace('/','_')+ '.txt'
+        #opening file to write links
+        links_file = open(filename+'.txt', 'a')
 
-    main_html = requests.get(url).text
+        for link in links:
+        
+            try:
+                new_link = urljoin(url,link['href'])
 
-    bs = BeautifulSoup(main_html,'html.parser')    # print(main_html)  # print(bs)
-    links = bs.find_all('a')
-    # print(bs.prettify())
+                if new_link not in master_links and urlparse(base_url).netloc == urlparse(new_link).netloc:
+                    links_file.write(new_link+'\n')
+                    master_links.append(new_link)
+        
+            except:
+                pass
 
-    #opening file to write links
-    links_file = open(filename+'.txt', 'a')
-
-    for link in links:
-        try:
-            # print(link['href'])
-            link_to_be_added = urljoin(url,link['href'])
-
-            if link_to_be_added not in visited_links:
-                links_file.write(link_to_be_added+'\n')
-                visited_links.append(link_to_be_added)
-        except:
-            pass
-
-    links_file.close()
+        links_file.close()
 
 
-    read_links = open(filename+'.txt','r')
+    # read_links = open(filename+'.txt','r')
 
     i = 1
-    for links in read_links:
+    for links in master_links:
         # print(links)
-        htmldownloader(url,links,str(i))
-        # print(links + '- - - - - html downloaded - - - - -')
-        i+=1
+        if links not in downloaded_links:
+            htmldownloader(url,links,str(i))
+            # print(links + '- - - - - html downloaded - - - - -')
+            i+=1
+            downloaded_links.append(links)
 
-    read_links.close()
+    # read_links.close()
 
 
 def crawl_starter(depth,link_itr):
     if depth==0:
         print("exit")
     else:
-        print(visited_links[link_itr])
-        crawling(visited_links[link_itr])
+        print(master_links[link_itr])
+        crawling(master_links[link_itr])
         crawl_starter(depth-1,link_itr+1)
         
 
 
 start = time.time()
 
-link_itr = 0
-visited_links = []
+master_links = []
+downloaded_links = []
 
-url = "https://www.fleetstudio.com/"
+base_url = url = "https://www.tutorialspoint.com/index.htm"
 depth = 5
-visited_links.append(url)
+master_links.append(url)
 
+filename = basefile(url)                                        # creating file name like www_google_com
+html_folder = os.getcwd() + '/' + filename
 
+if not os.path.isdir(html_folder):                              # checking if already folder exists if not create it
+    os.mkdir(html_folder)                                       # creating folder with name www_google_com
 
-filename = urlparse(url).netloc.replace('.','_')            # creating file name like www_google_com
-
-if not os.path.isdir(os.getcwd() + '/' + filename):         # checking if already folder exists if not create it
-    os.mkdir(os.getcwd() + '/' + filename)                  # creating folder with name www_google_com
-
-file = open(filename+'.txt','w')                            # creating text file www_google_com.txt to store links
+file = open(filename+'.txt','w')                                # creating text file www_google_com.txt to store links
 file.write(url+"\n")
 file.close()
 
-crawl_starter(depth,link_itr)                               # calling crawl_starter to start crawling by passing base url and depth
-
+crawl_starter(depth,0)                                          # calling crawl_starter to start crawling by passing base url and depth
 
 end = time.time()
 print(end-start)
