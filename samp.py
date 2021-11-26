@@ -1,10 +1,16 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from urllib.parse import urljoin, urlparse
+import requests
 #----------------------------------------------------------------------------
-URL = "https://www.tutorialspoint.com/index.htm"
+url = "https://www.fleetstudio.com/"
 #----------------------------------------------------------------------------
-soup = BeautifulSoup(urlopen(URL).read(), "html.parser")
-f = open("samp.html", "w", encoding="utf-8")
-f.write(str(soup.html))
-f.close()
+html_page = requests.get(url)
+print("---[" + str(html_page.status_code)+"]------")
+print(html_page.headers)
+# bs = BeautifulSoup(html_page.text,'html.parser')
+# print(bs.prettify())
+# res = bs.find_all('loc')
+# print(res)
+# for i in res:
+#     print(i,end="\n")

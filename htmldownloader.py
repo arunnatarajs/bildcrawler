@@ -16,16 +16,18 @@ def htmldownloader(base_url,url,i):
 
 
         html_page = requests.get(url)
-        print("---[" + str(html_page.status_code)+"]------")
+        print("\nUrl : "+ url + " Status Code : " + str(html_page.status_code), end =" ")
         bs = BeautifulSoup(html_page.text,'html.parser')
             # read_file_str = str(read_file)
             # outputfile = read_file_str.split('\\n')
 
         
             # print(filename)
-        download_file = open(html_file_name(url), "w", encoding="utf-8")
+        filename = html_file_name(url)
+        download_file = open(filename, "w", encoding="utf-8")
         download_file.write(str(bs))
         download_file.close()
+        print("Downloaded path : " + filename+"\n")
         
 
             
