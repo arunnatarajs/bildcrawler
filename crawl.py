@@ -7,10 +7,7 @@ import re
 import time
 # import lxml
 
-#global variables as follows:
-filename=""
-
-def crawl(url):
+def crawling(url):
     # base_url = 'https://www.tutorialspoint.com/'
     # visited_links.append(base_url)
 
@@ -23,8 +20,8 @@ def crawl(url):
 
     main_html = requests.get(url).text
 
-    bs = BeautifulSoup(main_html,'lxml')    # print(main_html)  # print(bs)
-    links = bs.find_all(['a','link'])
+    bs = BeautifulSoup(main_html,'html.parser')    # print(main_html)  # print(bs)
+    links = bs.find_all('a')
     # print(bs.prettify())
 
     #opening file to write links
@@ -44,16 +41,16 @@ def crawl(url):
     links_file.close()
 
 
-# read_links = open(filename,'r')
+    read_links = open(filename+'.txt','r')
 
-# i = 1
-# for links in read_links:
-#     # print(links)
-#     htmldownloader(base_url,links,str(i))
-#     # print(links + '- - - - - html downloaded - - - - -')
-#     i+=1
+    i = 1
+    for links in read_links:
+        # print(links)
+        htmldownloader(url,links,str(i))
+        # print(links + '- - - - - html downloaded - - - - -')
+        i+=1
 
-# read_links.close()
+    read_links.close()
 
 
 def crawl_starter(depth,link_itr):
@@ -61,7 +58,7 @@ def crawl_starter(depth,link_itr):
         print("exit")
     else:
         print(visited_links[link_itr])
-        crawl(visited_links[link_itr])
+        crawling(visited_links[link_itr])
         crawl_starter(depth-1,link_itr+1)
         
 
@@ -71,16 +68,23 @@ start = time.time()
 link_itr = 0
 visited_links = []
 
-url = "https://www.hotel.irctctourism.com/hotel"
+url = "https://www.fleetstudio.com/"
 depth = 5
 visited_links.append(url)
 
-filename = urlparse(url).netloc.replace('.','_')
-file = open(filename+'.txt','w')
+
+
+filename = urlparse(url).netloc.replace('.','_')            # creating file name like www_google_com
+
+if not os.path.isdir(os.getcwd() + '/' + filename):         # checking if already folder exists if not create it
+    os.mkdir(os.getcwd() + '/' + filename)                  # creating folder with name www_google_com
+
+file = open(filename+'.txt','w')                            # creating text file www_google_com.txt to store links
+file.write(url+"\n")
 file.close()
 
-crawl_starter(depth,link_itr)
+crawl_starter(depth,link_itr)                               # calling crawl_starter to start crawling by passing base url and depth
+
 
 end = time.time()
-
 print(end-start)
