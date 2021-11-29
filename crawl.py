@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
-from filename_generator import basefile, html_file_name
-from htmldownloader import htmldownloader
-import os
+from filename_generator import basefile
+from htmldownloader import htmldownloader,downloaded_links
+from os import mkdir,getcwd,path
 import time
-
+import concurrent.futures
 
 def crawling(url):
     global crawl_id
@@ -18,15 +18,17 @@ def crawling(url):
         bs = BeautifulSoup(html_page.text,'html.parser')
     
         if url not in downloaded_links:
-            
-            f_name = html_file_name(url)
-            f = open(f_name, "w", encoding="utf-8")
-            f.write(str(bs))
-            f.close()
+             with concurrent.futures.ThreadPoolExecutor() as executor:
+                executor.map(htmldownloader,url)
+            # htmldownloader(url)
+            # f_name = html_file_name(url)
+            # f = open(f_name, "w", encoding="utf-8")
+            # f.write(str(bs))
+            # f.close()
 
-            print("Downloaded path : " + f_name+"\n")
+            # print("Downloaded path : " + f_name+"\n")
 
-            downloaded_links.append(url)
+            # downloaded_links.append(url)
         
         links = bs.find_all('a')
         # print(bs.prettify())
@@ -53,16 +55,17 @@ def crawling(url):
 
     # read_links = open(filename+'.txt','r')
 
-    i = 1
-    for links in master_links:
-        # print(links)
-        if links not in downloaded_links:
-            htmldownloader(url,links,str(i))
-            # print(links + '- - - - - html downloaded - - - - -')
-            i+=1
-            downloaded_links.append(links)
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.map(htmldownloader,master_links)
+    # for links in master_links:
+    #     # print(links)
+    #     # if links not in downloaded_links:
+    #     htmldownloader(links)
+    #         # print(links + '- - - - - html downloaded - - - - -')
+    #         downloaded_links.append(links)
 
     # read_links.close()
+
 
 
 def crawl_starter(depth,link_itr):
@@ -70,8 +73,13 @@ def crawl_starter(depth,link_itr):
         print("exit")
     else:
         # print(master_links[link_itr])
+        # with concurrent.futures.ThreadPoolExecutor() as executor:
+        #     executor.map(crawling,[master_links[link_itr]])
+        #     executor.map(crawl_starter,[depth-1],[link_itr+1])
         crawling(master_links[link_itr])
         crawl_starter(depth-1,link_itr+1)
+    
+    
         
 
 #------------------------------------------------------------------------------------------------------------------------------------------------#
@@ -79,17 +87,16 @@ start = time.time()
 
 crawl_id = 1
 master_links = []
-downloaded_links = []
 
-base_url = url = "https://www.tcs.com/"
+base_url = url = "https://www.ril.com/"
 depth = 5
 master_links.append(url)
 
 filename = basefile(url)                                        # creating file name like www_google_com
-html_folder = os.getcwd() + '/' + filename
+html_folder = getcwd() + '/' + filename
 
-if not os.path.isdir(html_folder):                              # checking if already folder exists if not create it
-    os.mkdir(html_folder)                                       # creating folder with name www_google_com
+if not path.isdir(html_folder):                              # checking if already folder exists if not create it
+    mkdir(html_folder)                                       # creating folder with name www_google_com
 
 file = open(filename+'.txt','w')                                # creating text file www_google_com.txt to store links
 file.write(url+"\n")

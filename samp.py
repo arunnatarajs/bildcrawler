@@ -5,7 +5,7 @@ import requests
 #----------------------------------------------------------------------------
 url = "https://www.fleetstudio.com/"
 #----------------------------------------------------------------------------
-html_page = requests.get(url)
+html_page = requests.get("file://G:/vs_code_projects/crawler/www_fleetstudio_com")
 print("---[" + str(html_page.status_code)+"]------")
 print(html_page.headers)
 # bs = BeautifulSoup(html_page.text,'html.parser')
