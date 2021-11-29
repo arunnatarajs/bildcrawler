@@ -7,6 +7,8 @@ from os import mkdir,getcwd,path
 import time
 import concurrent.futures
 
+from url_filter import urlfilter
+
 def crawling(url):
     global crawl_id
     
@@ -41,8 +43,8 @@ def crawling(url):
             try:
                 new_link = urljoin(url,link['href'])
 
-                if new_link not in master_links and urlparse(base_url).netloc == urlparse(new_link).netloc:
-                    links_file.write(new_link+'\n')
+                if urlfilter(new_link) and new_link not in master_links and urlparse(base_url).netloc == urlparse(new_link).netloc:
+                    links_file.write(new_link+'\t'+ 'depth: ' + str(crawl_id)+'\n')
                     master_links.append(new_link)
         
             except:
@@ -88,7 +90,7 @@ start = time.time()
 crawl_id = 1
 master_links = []
 
-base_url = url = "https://www.ril.com/"
+base_url = url = "https://www.kct.ac.in/"
 depth = 5
 master_links.append(url)
 
