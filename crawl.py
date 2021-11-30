@@ -1,83 +1,57 @@
-import requests
+from requests import get
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from filename_generator import basefile
-from htmldownloader import htmldownloader,downloaded_links
+from htmldownloader import htmldownloader,not_downloaded
 from os import mkdir,getcwd,path
-import time
-import concurrent.futures
-
+from time import time
+from concurrent.futures import ThreadPoolExecutor
 from url_filter import urlfilter
+from csv import writer
+import config
 
 def crawling(url):
     global crawl_id
     
-    html_page = requests.get(url)
+    html_page = get(url)
     
     print( "Crawl id : {:04d} ".format(crawl_id) + " Url : " + url + " Status Code : " + str(html_page.status_code), end =" ")
-    if True:                                             # html_page.headers['Content-Type'] == 'text/html':
         
-        bs = BeautifulSoup(html_page.text,'html.parser')
+    bs = BeautifulSoup(html_page.text,'html.parser')         
+        
+    links = bs.find_all('a')
     
-        if url not in downloaded_links:
-             with concurrent.futures.ThreadPoolExecutor() as executor:
-                executor.map(htmldownloader,url)
-            # htmldownloader(url)
-            # f_name = html_file_name(url)
-            # f = open(f_name, "w", encoding="utf-8")
-            # f.write(str(bs))
-            # f.close()
 
-            # print("Downloaded path : " + f_name+"\n")
+    #opening file to write links
+    # links_file = open(filename+'.txt', 'a')
 
-            # downloaded_links.append(url)
-        
-        links = bs.find_all('a')
-        # print(bs.prettify())
-
-        #opening file to write links
-        links_file = open(filename+'.txt', 'a')
-
+    with open(filename + '.csv', 'a', newline='') as file:
+        writer_object = writer(file)
         for link in links:
-        
             try:
                 new_link = urljoin(url,link['href'])
-
                 if urlfilter(new_link) and new_link not in master_links and urlparse(base_url).netloc == urlparse(new_link).netloc:
-                    links_file.write(new_link+'\t'+ 'depth: ' + str(crawl_id)+'\n')
+                    writer_object.writerow(["{:04d} ".format(crawl_id),new_link,"null","not downloaded",crawl_id])  
+                    # links_file.write(new_link+'\t'+ 'depth: ' + str(crawl_id)+'\n')
                     master_links.append(new_link)
+                    not_downloaded.append(new_link)
         
             except:
                 pass
 
-        links_file.close()
+    file.close()
+
+    # links_file.close()
         
-        crawl_id+=1
+    crawl_id+=1
 
-
-    # read_links = open(filename+'.txt','r')
-
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.map(htmldownloader,master_links)
-    # for links in master_links:
-    #     # print(links)
-    #     # if links not in downloaded_links:
-    #     htmldownloader(links)
-    #         # print(links + '- - - - - html downloaded - - - - -')
-    #         downloaded_links.append(links)
-
-    # read_links.close()
-
-
+    with ThreadPoolExecutor(max_workers = config.admin['thread_count']) as executor:
+        executor.map(htmldownloader,not_downloaded)
 
 def crawl_starter(depth,link_itr):
     if depth==0:
         print("exit")
     else:
-        # print(master_links[link_itr])
-        # with concurrent.futures.ThreadPoolExecutor() as executor:
-        #     executor.map(crawling,[master_links[link_itr]])
-        #     executor.map(crawl_starter,[depth-1],[link_itr+1])
         crawling(master_links[link_itr])
         crawl_starter(depth-1,link_itr+1)
     
@@ -85,26 +59,44 @@ def crawl_starter(depth,link_itr):
         
 
 #------------------------------------------------------------------------------------------------------------------------------------------------#
-start = time.time()
 
-crawl_id = 1
+def main_crawl(url):
+    
+    start = time()
+    global crawl_id, filename, base_url
+
+    crawl_id = 1
+    base_url = url
+    
+    master_links.append(url)
+    not_downloaded.append(url)
+
+    filename = basefile(url)                                     # creating file name like www_google_com
+    html_folder = getcwd() + '/' + filename
+
+    if not path.isdir(html_folder):                              # checking if already folder exists if not create it
+        mkdir(html_folder)                                       # creating folder with name www_google_com
+
+    # file = open(filename+'.txt','w')                             # creating text file www_google_com.txt to store links
+    # file.write(url+"\n")
+    # file.close()
+
+    with open(filename + '.csv', 'w', newline='') as file:
+        writer_object = writer(file)
+        writer_object.writerow(["CRAWL ID","URL","RESPONSE CODE","DOWNLOADED PATH","DEPTH"])  
+    file.close()
+
+    crawl_starter(config.admin['depth_level'],0)                                       # calling crawl_starter to start crawling by passing base url and depth
+
+    end = time()
+    print(end-start)
+    
+    return "executed.............."
+
+
 master_links = []
+crawl_id =1
 
-base_url = url = "https://www.kct.ac.in/"
-depth = 5
-master_links.append(url)
+filename=""
 
-filename = basefile(url)                                        # creating file name like www_google_com
-html_folder = getcwd() + '/' + filename
-
-if not path.isdir(html_folder):                              # checking if already folder exists if not create it
-    mkdir(html_folder)                                       # creating folder with name www_google_com
-
-file = open(filename+'.txt','w')                                # creating text file www_google_com.txt to store links
-file.write(url+"\n")
-file.close()
-
-crawl_starter(depth,0)                                          # calling crawl_starter to start crawling by passing base url and depth
-
-end = time.time()
-print(end-start)
+# main_crawl("https://www.w3schools.com/default.asp")
