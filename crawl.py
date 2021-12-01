@@ -42,8 +42,11 @@ def crawling(url):
     file.close()
 
     # links_file.close()
-        
+    # print('\n no of links'+len(master_links))        
     crawl_id+=1
+
+    # for i in not_downloaded:
+    #     htmldownloader(i)
 
     with ThreadPoolExecutor(max_workers = config.admin['thread_count']) as executor:
         executor.map(htmldownloader,not_downloaded)
@@ -84,6 +87,7 @@ def main_crawl(url):
     with open(filename + '.csv', 'w', newline='') as file:
         writer_object = writer(file)
         writer_object.writerow(["CRAWL ID","URL","RESPONSE CODE","DOWNLOADED PATH","DEPTH"])  
+        writer_object.writerow(["{:04d} ".format(0),url,"null","not downloaded",0])
     file.close()
 
     crawl_starter(config.admin['depth_level'],0)                                       # calling crawl_starter to start crawling by passing base url and depth
@@ -99,4 +103,4 @@ crawl_id =1
 
 filename=""
 
-# main_crawl("https://www.w3schools.com/default.asp")
+main_crawl("https://www.fleetstudio.com/")

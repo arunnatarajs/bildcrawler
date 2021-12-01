@@ -1,8 +1,13 @@
+from os import error
 from requests import get
 from bs4 import BeautifulSoup
-from csv import writer
+from pandas import read_csv
+from tempfile import NamedTemporaryFile
+import shutil
+import csv
 
 from filename_generator import basefile, html_file_name
+from samp import update_csv
 
 downloaded_links = []
 not_downloaded = []
@@ -24,16 +29,32 @@ def htmldownloader(url):
             download_file.write(str(bs))
             download_file.close()
 
-            # fields = ['Name', 'Branch', 'Year', 'CGPA'] 
+            
+            df = read_csv(basefile(url.strip())+".csv")
+            df.loc[df["URL"]==url.strip(),['RESPONSE CODE','DOWNLOADED PATH']] = [200,filename]
+            df.to_csv(basefile(url.strip())+".csv",index=False)
 
-            # with open(basefile(url)+'.csv', 'a', newline='') as f_object:
-            #     writer_object = writer(f_object)
-            #     writer_object.writerow([url,html_page.status_code,filename])
-            # f_object.close()
-            print("\nUrl : "+ url + " Status Code : " + str(html_page.status_code)+" Downloaded path : " + filename+"\n")
+            # update_csv(url,html_page.status_code,filename)
+
+            # filename = basefile(url)+'.csv'
+            # tempfile = NamedTemporaryFile(mode='w', delete=False)
+            # fields = ["CRAWL ID","URL","RESPONSE CODE","DOWNLOADED PATH","DEPTH"]
+            # with open(basefile(url)+'.csv', 'r') as csvfile, tempfile:
+            #     reader = csv.DictReader(csvfile, fieldnames=fields)
+            #     writer = csv.DictWriter(tempfile, fieldnames=fields)
+            #     for row in reader:
+            #         if row['URL'] == url:
+            #             print('updating row', row['URL'])
+            #             row['RESPONSE CODE'], row['DOWNLOADED PATH'] = html_page.status_code, filename
+            #         row = {'CRAWL ID': row['CRAWL ID'], 'URL': row['URL'], 'RESPONSE CODE': row['RESPONSE CODE'], 'DOWNLOADED PATH': row['DOWNLOADED PATH'], 'DEPTH': row['DEPTH']}
+            #         writer.writerow(row)
+            # shutil.move(tempfile.name, filename)
+
+            # print("\nUrl : "+ url + " Status Code : " + str(html_page.status_code)+" Downloaded path : " + filename+"\n")
          
-        except:
-            pass
+        except error:
+
+            print(error)
     else:
         pass
 
