@@ -1,62 +1,44 @@
-from os import error
-from requests import get
+from requests import get,exceptions
 from bs4 import BeautifulSoup
-from pandas import read_csv
-from tempfile import NamedTemporaryFile
-import shutil
-import csv
-
-from filename_generator import basefile, html_file_name
-from samp import update_csv
+from filename_generator import html_file_name
 
 downloaded_links = []
-not_downloaded = []
-
+csv_list = {}
 
 def htmldownloader(url):
     
     if url not in downloaded_links:
-        downloaded_links.append(url)
-        not_downloaded.remove(url)
+        
         try:
-            
-            html_page = get(url)
+            html_page = get(url,timeout=10)
 
             bs = BeautifulSoup(html_page.text,'html.parser')
-    
-            filename = html_file_name(url)
+
+            
+        
+            filename = html_file_name(url,csv_list[url][0])
+
             download_file = open(filename, "w", encoding="utf-8")
             download_file.write(str(bs))
             download_file.close()
 
+            update = csv_list[url]
+            update[2],update[3] = html_page.status_code,filename
+            csv_list[url] = update
             
-            df = read_csv(basefile(url.strip())+".csv")
-            df.loc[df["URL"]==url.strip(),['RESPONSE CODE','DOWNLOADED PATH']] = [200,filename]
-            df.to_csv(basefile(url.strip())+".csv",index=False)
+            downloaded_links.append(url)
+            print("\nUrl : "+ url + " Status Code : " + str(html_page.status_code)+" Downloaded path : " + filename+"\n")
+        except exceptions.ReadTimeout:
+            update = csv_list[url]
+            update[3] = "timeout"
+            csv_list[url] = update
 
-            # update_csv(url,html_page.status_code,filename)
-
-            # filename = basefile(url)+'.csv'
-            # tempfile = NamedTemporaryFile(mode='w', delete=False)
-            # fields = ["CRAWL ID","URL","RESPONSE CODE","DOWNLOADED PATH","DEPTH"]
-            # with open(basefile(url)+'.csv', 'r') as csvfile, tempfile:
-            #     reader = csv.DictReader(csvfile, fieldnames=fields)
-            #     writer = csv.DictWriter(tempfile, fieldnames=fields)
-            #     for row in reader:
-            #         if row['URL'] == url:
-            #             print('updating row', row['URL'])
-            #             row['RESPONSE CODE'], row['DOWNLOADED PATH'] = html_page.status_code, filename
-            #         row = {'CRAWL ID': row['CRAWL ID'], 'URL': row['URL'], 'RESPONSE CODE': row['RESPONSE CODE'], 'DOWNLOADED PATH': row['DOWNLOADED PATH'], 'DEPTH': row['DEPTH']}
-            #         writer.writerow(row)
-            # shutil.move(tempfile.name, filename)
-
-            # print("\nUrl : "+ url + " Status Code : " + str(html_page.status_code)+" Downloaded path : " + filename+"\n")
+        except:
+            pass
          
-        except error:
-
-            print(error)
     else:
         pass
+        # print("\n Already downloaded \n")
 
 
 

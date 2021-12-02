@@ -1,11 +1,10 @@
+import requests
+try:
+    link = 'https://www.apollohospiitals.com/404' 
+    request_from_link = requests.get(link) 
+# this causes the code to call a timeout if the connection or delays in 
+# between the reads take more than 10 seconds
+    print(request_from_link.status_code)
 
-from pandas import read_csv
-def update_csv(url,rescode,path):
-    df = read_csv("G:/vs_code_projects/crawler/www_kct_ac_in.csv")
-    
-    # updating the column value/data
-    # df[:,"https://www.fleetstudio.com/labs",'RESPONSE CODE'] =200
-    df.loc[df["URL"]==url.strip(),['RESPONSE CODE','DOWNLOADED PATH']] = [rescode,path]
-    # df.loc[df["URL"]==url, 'DOWNLOADED PATH']
-    df.to_csv("G:/vs_code_projects/crawler/www_kct_ac_in.csv",index=False)
-    print(df)
+except Exception as e:
+    print(e)
