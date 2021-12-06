@@ -21,5 +21,5 @@ def crawler():
         job_id = args.get("jobId")
         stage_id = args.get("stageId")
         print(url,job_id,stage_id,sep="\n")
-        # return crawl.main_crawl(url)
+        return crawl.main_crawl(url,job_id,stage_id)
         return "hello"

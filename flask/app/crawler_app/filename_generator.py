@@ -1,5 +1,4 @@
 from urllib.parse import urlparse
-from os import getcwd
 
 
 def basefile(url):
@@ -7,9 +6,8 @@ def basefile(url):
     return filename
 
 
-def html_file_name(url, num):
-    parsed_url = urlparse(url).netloc
-    parsed_url = parsed_url.replace('.', '_')
+def html_file_name(num):
+
     filename = num
-    filename = getcwd() + '/' + parsed_url + '/' + filename + '.html'
+    filename = filename + '.html'
     return filename
