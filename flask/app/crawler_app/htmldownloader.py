@@ -27,6 +27,7 @@ def htmldownloader(url):
             downloaded_links.append(url)
             logger.log_info_writer("Url : " + url + " Status Code : " + str(
                 html_page.status_code) + " Downloaded path : " + filename)
+                
         except exceptions.ReadTimeout as e:
             logger.log_error_writer(url +" "+str(e))
             update = csv_list[url]
