@@ -11,19 +11,19 @@ def htmldownloader(url):
     if url not in downloaded_links:
 
         try:
-            html_page = get(url, timeout=10)
+            html_page = get(url, timeout=10)                               #getting response from url
             print('\nIn download')
 
-            bs = BeautifulSoup(html_page.text, 'html.parser')
+            bs = BeautifulSoup(html_page.text, 'html.parser')              #using BeautifulSoup paring html
             downloaded_file = bs.encode("utf-8")
 
-            filename = filename_generator.html_file_name(csv_list[url][0])
+            filename = filename_generator.html_file_name(csv_list[url][0])  
 
-            s3.upload_file(downloaded_file,filename)
+            s3.upload_file(downloaded_file,filename)                        #uploading downloaded file to s3
             
 
             update = csv_list[url]
-            update[2], update[3] = html_page.status_code, filename
+            update[2], update[3] = html_page.status_code, filename          #updating download path and response code
             csv_list[url] = update
 
             downloaded_links.append(url)

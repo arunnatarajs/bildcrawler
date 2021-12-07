@@ -10,7 +10,7 @@ logging.disable('DEBUG')
 #Setting the threshold of logger to DEBUG  
 logger.setLevel(logging.NOTSET)  
 
-def log_info_writer(message):
+def log_info_writer(message):  
     logger.info(message)
 
 def log_error_writer(message):
